@@ -9,17 +9,18 @@ public class Property {
     private String name;
     private int cost;
     private boolean isOwned;
+    private boolean isSpecial;
     private int position;
 
     private int numHouses;
     private int numHotels;
 
-    public Property(String name, int cost, boolean isOwned, int position){
+    public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial){
         this.name = name;
         this.cost = cost;
         this.isOwned = isOwned;
         this.position = position;
-
+        this.isSpecial = isSpecial;
     }
 
     public String getName(){

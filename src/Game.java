@@ -5,7 +5,6 @@ public class Game  {
     private List <Players> players;
     private int numberPlayers;
 
-
     public Game(){
 
         players = new ArrayList<>();
