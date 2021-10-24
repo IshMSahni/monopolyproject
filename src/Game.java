@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Game  {
     private List <Players> players;
     private int numberPlayers;
+    private GameState state;
 
 
     public Game(){
@@ -29,6 +30,7 @@ public class Game  {
     public void setup(){
         Scanner c = new Scanner(System.in);
         System.out.println("Welcome to Monopoly! How many players will be playing? (2-4 Players permitted) ");
+        this.state = GameState.SET_UP;
 
         while (numberPlayers < 2 || numberPlayers > 4) { //ensures the user inputs number of players between 2-6
 
