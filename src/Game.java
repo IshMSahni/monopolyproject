@@ -110,11 +110,12 @@ public class Game  {
      * CURRENTLY HARDCODED FOR TESTING
      * "get(index)" for command 1--> index will be based on current turn; not a static number
      */
-    public void play(){
+    public Integer play(){
         Scanner c = new Scanner(System.in);
         for (int i = 0; i < players.size(); i++) {
             int roll = dice.rollDice();
             players.get(i).setPosition(players.get(i).getPosition() + roll);
+            System.out.println("You are currently on" + board.propertyholder.get(players.get(i).getPosition()).getName());
             while (com != 4) {
                 System.out.println("Enter command: \n " +
                         "Press 1 to buy the property you are currently on,\n " +
@@ -143,23 +144,17 @@ public class Game  {
             }
             com = 0;
         }
-            com = 4;
-            state = GameState.GAMEOVER;
-            actionDispatch(state, 0);
+            return com;
     }
-
-
-
-
-
 
 
     public static void main(String[] args) {
 
         Game game = new Game();
         game.setup();
-        while(com != 4) {
-            game.play();
+        Integer quit = 0;
+        while(quit != 4) {
+            quit = game.play();
         }
 
     }
