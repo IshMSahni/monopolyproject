@@ -39,6 +39,10 @@ public class Property {
         return this.isOwned;
     }
 
+    public boolean isSpecial(){
+        return this.isSpecial;
+    }
+
     public void removeOwner(){
         this.isOwned = false;
     }

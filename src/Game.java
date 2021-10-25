@@ -108,7 +108,8 @@ public class Game  {
             if(players.get(i).getPosition() > 26)
                 players.get(i).setPosition(players.get(i).getPosition() - 26);
             System.out.println("You are now on: " + board.propertyholder.get(players.get(i).getPosition()).getName());
-            if(board.propertyholder.get(players.get(i).getPosition()).getOwner() != players.get(i).getName()){
+
+            if(board.propertyholder.get(players.get(i).getPosition()).getOwner() != players.get(i).getName() && board.propertyholder.get(players.get(i).getPosition()).isOwned()){
                new PayRent(players.get(i), players, board, i);
             }
             while (com != 4) {
@@ -129,7 +130,7 @@ public class Game  {
                 } else if (com == 4) {
                     state = GameState.GAMEOVER;
                     actionDispatch(state, i);
-                    break;
+                    return com;
                 }
             }
 

@@ -10,7 +10,7 @@ public class Bankrupt {
         for (int j = 0; j < board.getProperties().size(); j++) {
             if (board.propertyholder.get(j).getOwner().equalsIgnoreCase(players.get(i).getName())) {
                 board.propertyholder.get(j).setOwner("");
-                board.propertyholder.get(j).removeIsOwned();
+                board.propertyholder.get(j).removeOwner();
             }
         }
     }

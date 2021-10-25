@@ -19,7 +19,9 @@ public class BuyCommand {
 
     public void buyConditions(int position, String playerName){
 
-        if(board.propertyholder.get(position).isOwned())
+        if(!board.propertyholder.get(position).isSpecial())
+            System.out.println("Sorry this is a government property and is not for sale.");
+        else if(board.propertyholder.get(position).isOwned())
             System.out.println("Sorry, this property is already owned");
 
         else if (players.getMoney() < board.propertyholder.get(position).getCost()){
