@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.Scanner;
 
 /**
- * @author Aayush Mallya
+ * @author Aayush Mallya, Ishanov Sahni
  */
 public class Game  {
     private List <Players> players;
@@ -19,6 +19,7 @@ public class Game  {
 
         players = new ArrayList<>();
         board = new Board();
+        dice = new Dice();
         com = 0;
 
     }
@@ -69,11 +70,11 @@ public class Game  {
         for(int i = 0; i < numberPlayers; i++){
             System.out.print ("Player " + (i + 1) + ": " );
             String name = c.nextLine();
-            Players player = new Players(name, 500, 1);
+            Players player = new Players(name, 500, 0);
             addPlayer(player);
 
         }
-        System.out.println(" \n These are the player names: ");
+        System.out.println("\nThese are the player names: ");
         for(int i = 0; i < players.size(); i++)
             System.out.println(players.get(i).getName());
 
@@ -95,7 +96,8 @@ public class Game  {
             for(int i = 0; i < board.getProperties().size(); i++){
                 if(board.propertyholder.get(i).getOwner().equalsIgnoreCase(players.get(player).getName())) {
                     board.propertyholder.get(i).setOwner("");
-                    board.propertyholder.get(i).removeIsOwned();
+                    board.propertyholder.get(i).removeOwner();
+
                 }
             }
         }
@@ -107,20 +109,23 @@ public class Game  {
     }
 
     /**
-     * CURRENTLY HARDCODED FOR TESTING
-     * "get(index)" for command 1--> index will be based on current turn; not a static number
+     * Runs the game through text-based I/O
      */
     public Integer play(){
         Scanner c = new Scanner(System.in);
         for (int i = 0; i < players.size(); i++) {
             int roll = dice.rollDice();
+            System.out.println("------------------\nIt is now " + players.get(i).getName() + "'s turn.\nYou are currently on: " + board.propertyholder.get(players.get(i).getPosition()).getName());
+            System.out.println("You rolled a(n) " + roll);
             players.get(i).setPosition(players.get(i).getPosition() + roll);
-            System.out.println("You are currently on" + board.propertyholder.get(players.get(i).getPosition()).getName());
+            if(players.get(i).getPosition() > 26)
+                players.get(i).setPosition(players.get(i).getPosition() - 26);
+            System.out.println("You are now on: " + board.propertyholder.get(players.get(i).getPosition()).getName());
             while (com != 4) {
-                System.out.println("Enter command: \n " +
+                System.out.println("\nEnter command: \n " +
                         "Press 1 to buy the property you are currently on,\n " +
                         "Press 2 to get information about your Player,\n " +
-                        "Press 3 to end your turn, \n" +
+                        "Press 3 to end your turn, \n " +
                         "Press 4 to end the entire game.");
                 com = Integer.parseInt(c.nextLine());
                 if (com == 1) {

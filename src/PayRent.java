@@ -1,5 +1,5 @@
 import java.util.List;
-/*
+/**
 *   @author Gang Han
 *   Process the rent payment
 */

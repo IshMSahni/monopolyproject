@@ -39,9 +39,10 @@ public class Property {
         return this.isOwned;
     }
 
-    public void removeIsOwned(){
+    public void removeOwner(){
         this.isOwned = false;
     }
+
     public int getPosition(){
         return this.position;
     }

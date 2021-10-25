@@ -1,4 +1,7 @@
-
+/**
+ * @author Gang Han
+ * Rolls the dice, generating 2 random numbers
+ */
 
 public class Dice {
 

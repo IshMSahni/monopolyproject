@@ -14,7 +14,7 @@ public class PrintCommand {
     }
 
     public void printState(Players players){
-        System.out.println("\nPlayer Name: " + players.getName() + "\nMoney: " + players.getMoney() + "\nPosition: " + players.getPosition());
+        System.out.println("\nPlayer Name: " + players.getName() + "\nMoney: " + players.getMoney() + "\nPosition: " + players.getPosition() + ',' + board.propertyholder.get(players.getPosition()).getName());
         System.out.println("Properties Owned: ");
         for(int i = 0; i < board.getProperties().size(); i++){
             if(board.propertyholder.get(i).getOwner().equalsIgnoreCase(players.getName()))

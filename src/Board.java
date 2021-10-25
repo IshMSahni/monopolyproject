@@ -67,15 +67,4 @@ public class Board {
         return this.propertyholder;
     }
 
-    /*public void newOwner(int pos,String n){
-        propertyholder.get(pos).setOwner(n);
-    }*/
-
-    /* public static void main(String[] args) {
-        Board board = new Board();
-        board.getProperties();
-        Property info1 = board.propertyholder.get(24);
-        System.out.println(info1.getName() + "," + info1.getCost() + "," + info1.isOwned() + "," + info1.getPosition() +"," + info1.getRent(info1.getCost()));
-
-    } */
 }
