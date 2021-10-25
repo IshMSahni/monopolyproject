@@ -10,15 +10,19 @@ public class PayRent {
     private List<Players> players;
     private Property property;
     private Board board;
+    private Integer j;
 
-    public PayRent(Players tenant, List<Players> players,Board board){
+    public PayRent(Players tenant, List<Players> players,Board board, Integer j){
         this.tenant = tenant;
         this.board = board;
         this.players = players;
         this.property = board.propertyholder.get(tenant.getPosition());
+        this.j = j;
 
-        //If the property is owned
-        if(property.isOwned() == true){
+        System.out.println("This property is owned by" + property.getOwner());
+        System.out.println(players.get(j).getName()+" just paid $" + property.getRent(
+                property.getCost()) + " to " + property.getOwner());
+            //If the property is owned
             //Loop through player list to find the owner
             for(int i = 0; i < 4; i++){
                 //Once the owner is found
@@ -29,9 +33,6 @@ public class PayRent {
                 }
             }
             //When the property is not owned by anyone
-        }else{
-            System.out.println("This property is not owned by anyone... yet");
-        }
     }
 
     //Go through the payment

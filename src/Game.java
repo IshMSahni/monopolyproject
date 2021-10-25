@@ -21,6 +21,7 @@ public class Game  {
         board = new Board();
         dice = new Dice();
         com = 0;
+        dice = new Dice();
 
     }
 
@@ -90,22 +91,8 @@ public class Game  {
         if(state == GameState.BUY)
             new BuyCommand(players.get(player), players.get(player).getPosition(), players.get(player).getName(), board);
 
-        else if(state == GameState.BANKRUPT){
-            System.out.println("Oh no" + players.get(player).getName() + "went bankrupt \n" +
-                    "All of their properties are now available for purchase when landed on!");
-            for(int i = 0; i < board.getProperties().size(); i++){
-                if(board.propertyholder.get(i).getOwner().equalsIgnoreCase(players.get(player).getName())) {
-                    board.propertyholder.get(i).setOwner("");
-                    board.propertyholder.get(i).removeOwner();
-
-                }
-            }
-        }
-
-
         else if(state == GameState.GAMEOVER)
             System.out.println("Thanks for playing!");
-
     }
 
     /**
@@ -121,6 +108,9 @@ public class Game  {
             if(players.get(i).getPosition() > 26)
                 players.get(i).setPosition(players.get(i).getPosition() - 26);
             System.out.println("You are now on: " + board.propertyholder.get(players.get(i).getPosition()).getName());
+            if(board.propertyholder.get(players.get(i).getPosition()).getOwner() != players.get(i).getName()){
+               new PayRent(players.get(i), players, board, i);
+            }
             while (com != 4) {
                 System.out.println("\nEnter command: \n " +
                         "Press 1 to buy the property you are currently on,\n " +
@@ -146,6 +136,7 @@ public class Game  {
             if (players.get(i).getMoney() < 0){
                 state = GameState.BANKRUPT;
                 actionDispatch(state, i);
+                new Bankrupt().DeclareBankruptcy(players, i,board);
             }
             com = 0;
         }
