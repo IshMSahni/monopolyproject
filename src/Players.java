@@ -1,10 +1,12 @@
 import java.util.*;
 
 /**
- * Player Class contains information related to the player.
+ * @author Aayush Mallya
+ * Sets up the Player Object
  */
 public class Players {
-    private List<Property> properties = new ArrayList<>();
+
+    private Board board;
 
     private String name;
     private int money;
@@ -12,18 +14,15 @@ public class Players {
 
 
 
-    public Players(String name, int money, List<Property> properties, int position){
+    public Players(String name, int money, int position){
         this.name = name;
         this.money = money;
         this.position = position;
-        this.properties = properties;
+
+        this.board = new Board();
 
     }
 
-    public void addProperty(Players player, Property property ){
-
-        player.properties.add(property);
-    }
 
     public void setPosition(int pos){
         this.position = pos;
@@ -34,15 +33,15 @@ public class Players {
         return this.name;
     }
 
+    public void setMoney(int mon){
+        this.money = mon;
+    }
+
     public int getMoney(){
 
         return this.money;
     }
 
-    public List<Property> getProperties(){
-
-        return this.properties;
-    }
 
     public int getPosition(){
         return this.position;

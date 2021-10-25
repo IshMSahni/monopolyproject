@@ -1,11 +1,14 @@
 import java.util.*;
 
 /**
- *
+ * @author Aayush Mallya
+ * Information pertaining to the player state
  */
 public class Property {
 
-    private List<Property> properties = new ArrayList<>();
+    private Board board;
+
+    private String owner;
     private String name;
     private int cost;
     private boolean isOwned;
@@ -15,28 +18,41 @@ public class Property {
     private int numHouses;
     private int numHotels;
 
-    public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial){
+    public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial, String owner){
         this.name = name;
         this.cost = cost;
         this.isOwned = isOwned;
         this.position = position;
         this.isSpecial = isSpecial;
+        this.owner = owner;
     }
 
     public String getName(){
-        return name;
+        return this.name;
     }
 
     public int getCost(){
-        return cost;
+        return this.cost;
     }
 
     public boolean isOwned(){
-        return isOwned;
+        return this.isOwned;
     }
 
     public int getPosition(){
-        return position;
+        return this.position;
+    }
+
+    public String getPlayer(){
+        return  this.owner;
+    }
+
+    public void setOwner(String newOwner){
+        this.owner = newOwner;
+    }
+
+    public String getOwner(){
+        return  this.owner;
     }
 
   /*  private void addHouse(int num){
@@ -55,9 +71,9 @@ public class Property {
         return numHotels;
     }*/
 
-    private int calcRent(Property property){
+    public int getRent(int cost){
        // return (int)((0.1 * property.getCost()) + (0.05 * property.getNumHouses()) + (0.1 * property.getNumHotels()));
-        return (int)(0.1 * property.getCost());
+        return (int)(0.1 * cost);
     }
 
 
