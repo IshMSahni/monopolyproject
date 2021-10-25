@@ -6,6 +6,10 @@ public class Board {
 
     //private final Integer[] boardspaces = new Integer[25];
     //might want to use an array later instead of using integers directly in the map
+
+    /**
+     * Initiate board with a HashMap of properties
+     */
     public Board (){
 
         propertyholder = new HashMap<>();
@@ -63,6 +67,10 @@ public class Board {
         propertyholder.put(25,p26);
     }
 
+    /**
+     * Return properties
+     * @return
+     */
     public Map<Integer, Property> getProperties(){
         return this.propertyholder;
     }

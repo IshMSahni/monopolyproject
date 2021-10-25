@@ -12,6 +12,15 @@ public class PayRent {
     private Board board;
     private Integer j;
 
+
+    /**
+     * Constructor for PayRent, also has function to check if the property is owned
+     *
+     * @param tenant
+     * @param players
+     * @param board
+     * @param j
+     */
     public PayRent(Players tenant, List<Players> players,Board board, Integer j){
         this.tenant = tenant;
         this.board = board;
@@ -29,14 +38,16 @@ public class PayRent {
                 if(property.getOwner() == players.get(i).getName()){
                     //Assign landLord
                     landLord = players.get(i);
-                    paymentProgress();
+                    paymentProcess();
                 }
             }
             //When the property is not owned by anyone
     }
 
-    //Go through the payment
-    public void paymentProgress(){
+    /**
+     * Process the payment
+     */
+    public void paymentProcess(){
         //Create a local integer of rent
         int rent = this.property.getRent(this.property.getCost());
         //Do payment for tenant

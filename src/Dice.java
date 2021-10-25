@@ -11,6 +11,10 @@ public class Dice {
     public Dice(){
     }
 
+    /**
+     * Roll the two dice, return the combined value of both dice
+     * @return
+     */
     public int rollDice(){
         dice1 =(int)(Math.random()*6+1);
         dice2 =(int)(Math.random()*6+1);

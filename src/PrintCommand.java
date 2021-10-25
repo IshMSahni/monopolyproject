@@ -2,6 +2,8 @@
  * @author Aayush Mallya
  * Code for printing the current player state
  */
+
+
 public class PrintCommand {
     private Players players;
     private Property property;
@@ -13,6 +15,10 @@ public class PrintCommand {
         printState(players);
     }
 
+    /**
+     *
+     * @param players
+     */
     public void printState(Players players){
         System.out.println("\nPlayer Name: " + players.getName() + "\nMoney: " + players.getMoney() + "\nPosition: " + players.getPosition() + ',' + board.propertyholder.get(players.getPosition()).getName());
         System.out.println("Properties Owned: ");

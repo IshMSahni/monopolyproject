@@ -2,7 +2,12 @@ import java.util.List;
 
 public class Bankrupt {
 
-    
+    /**
+     * Declare a player's bankruptcy, remove his properties
+     * @param players
+     * @param i
+     * @param board
+     */
     public void DeclareBankruptcy(List<Players> players, Integer i, Board board) {
 
         System.out.println("Oh no" + players.get(i).getName() + "went bankrupt \n" +

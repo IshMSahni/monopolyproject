@@ -45,6 +45,7 @@ public class Property {
 
     public void removeOwner(){
         this.isOwned = false;
+        this.owner = null;
     }
 
     public int getPosition(){

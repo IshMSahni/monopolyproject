@@ -13,7 +13,12 @@ public class Players {
     private int position;
 
 
-
+    /**
+     * Constructor for player
+     * @param name
+     * @param money
+     * @param position
+     */
     public Players(String name, int money, int position){
         this.name = name;
         this.money = money;
@@ -22,26 +27,44 @@ public class Players {
 
     }
 
-
+    /**
+     * Setter for Position
+     * @param pos
+     */
     public void setPosition(int pos){
         this.position = pos;
     }
 
+    /**
+     * Getter for Name
+     * @return
+     */
     public String getName(){
 
         return this.name;
     }
 
+    /**
+     * Setter for Money
+     * @param mon
+     */
     public void setMoney(int mon){
         this.money = mon;
     }
 
+    /**
+     * Getter for Money
+     * @return
+     */
     public int getMoney(){
 
         return this.money;
     }
 
-
+    /**
+     * Getter for position
+     * @return
+     */
     public int getPosition(){
         return this.position;
     }

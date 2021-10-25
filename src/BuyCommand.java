@@ -9,6 +9,13 @@ public class BuyCommand {
     private Property property;
     private Board board;
 
+    /**
+     * Constructor for BuyCommand
+     * @param players
+     * @param position
+     * @param name
+     * @param board
+     */
     public BuyCommand(Players players, int position, String name, Board board){
         this.players = players;
         this.board = board;
@@ -17,6 +24,11 @@ public class BuyCommand {
 
     }
 
+    /**
+     * Take position of the property and the name of the Player, see if the property is open to purchase
+     * @param position
+     * @param playerName
+     */
     public void buyConditions(int position, String playerName){
 
         if(!board.propertyholder.get(position).isSpecial())
