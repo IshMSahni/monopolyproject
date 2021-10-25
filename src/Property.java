@@ -39,6 +39,9 @@ public class Property {
         return this.isOwned;
     }
 
+    public void removeIsOwned(){
+        this.isOwned = false;
+    }
     public int getPosition(){
         return this.position;
     }
@@ -49,6 +52,7 @@ public class Property {
 
     public void setOwner(String newOwner){
         this.owner = newOwner;
+        this.isOwned = true;
     }
 
     public String getOwner(){

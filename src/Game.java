@@ -13,7 +13,7 @@ public class Game  {
     private int numberPlayers;
     private  int com;
     private GameState state;
-
+    private Dice dice;
 
     public Game(){
 
@@ -85,9 +85,21 @@ public class Game  {
      * Depending on the Game State it will dispatch actions
      * @param state
      */
-    private void actionDispatch(GameState state){
+    private void actionDispatch(GameState state, int player){
         if(state == GameState.BUY)
-            new BuyCommand(players.get(0), players.get(0).getPosition(), players.get(0).getName(), board);
+            new BuyCommand(players.get(player), players.get(player).getPosition(), players.get(player).getName(), board);
+
+        else if(state == GameState.BANKRUPT){
+            System.out.println("Oh no" + players.get(player).getName() + "went bankrupt \n" +
+                    "All of their properties are now available for purchase when landed on!");
+            for(int i = 0; i < board.getProperties().size(); i++){
+                if(board.propertyholder.get(i).getOwner().equalsIgnoreCase(players.get(player).getName())) {
+                    board.propertyholder.get(i).setOwner("");
+                    board.propertyholder.get(i).removeIsOwned();
+                }
+            }
+        }
+
 
         else if(state == GameState.GAMEOVER)
             System.out.println("Thanks for playing!");
@@ -100,31 +112,40 @@ public class Game  {
      */
     public void play(){
         Scanner c = new Scanner(System.in);
-
-
-        while(com != 4) {
-            System.out.println("Enter command: (1,2,3,4)");
-            com = Integer.parseInt(c.nextLine());
-
-            if (com == 1){
-                state = GameState.BUY;
-                actionDispatch(state);
-                players.get(0).setPosition(players.get(0).getPosition()+1);
-            }
-
-
-            else if (com == 2) {
-                for (int i = 0; i < players.size(); i++)
+        for (int i = 0; i < players.size(); i++) {
+            int roll = dice.rollDice();
+            players.get(i).setPosition(players.get(i).getPosition() + roll);
+            while (com != 4) {
+                System.out.println("Enter command: \n " +
+                        "Press 1 to buy the property you are currently on,\n " +
+                        "Press 2 to get information about your Player,\n " +
+                        "Press 3 to end your turn, \n" +
+                        "Press 4 to end the entire game.");
+                com = Integer.parseInt(c.nextLine());
+                if (com == 1) {
+                    state = GameState.BUY;
+                    actionDispatch(state, i);
+                } else if (com == 2) {
                     printCommand = new PrintCommand(players.get(i), board);
-            } else if (com == 3) {
-                //CHANGE TURN
-            } else if (com == 4) {
-                state = GameState.GAMEOVER;
-                actionDispatch(state);
-                break;
+                } else if (com == 3) {
+                    com = 4;
+                    break;
+                } else if (com == 4) {
+                    state = GameState.GAMEOVER;
+                    actionDispatch(state, i);
+                    break;
+                }
             }
-        }
 
+            if (players.get(i).getMoney() < 0){
+                state = GameState.BANKRUPT;
+                actionDispatch(state, i);
+            }
+            com = 0;
+        }
+            com = 4;
+            state = GameState.GAMEOVER;
+            actionDispatch(state, 0);
     }
 
 
@@ -137,7 +158,9 @@ public class Game  {
 
         Game game = new Game();
         game.setup();
-        game.play();
+        while(com != 4) {
+            game.play();
+        }
 
     }
 
