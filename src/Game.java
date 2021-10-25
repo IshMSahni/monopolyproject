@@ -81,7 +81,10 @@ public class Game  {
     }
 
 
-
+    /**
+     * Depending on the Game State it will dispatch actions
+     * @param state
+     */
     private void actionDispatch(GameState state){
         if(state == GameState.BUY)
             new BuyCommand(players.get(0), players.get(0).getPosition(), players.get(0).getName(), board);
