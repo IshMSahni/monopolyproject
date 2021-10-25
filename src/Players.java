@@ -6,7 +6,7 @@ import java.util.*;
  */
 public class Players {
 
-    private Board board;
+
 
     private String name;
     private int money;
@@ -19,7 +19,6 @@ public class Players {
         this.money = money;
         this.position = position;
 
-        this.board = new Board();
 
     }
 

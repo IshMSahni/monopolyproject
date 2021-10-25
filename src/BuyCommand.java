@@ -9,9 +9,9 @@ public class BuyCommand {
     private Property property;
     private Board board;
 
-    public BuyCommand(Players players, int position, String name){
+    public BuyCommand(Players players, int position, String name, Board board){
         this.players = players;
-        this.board = new Board();
+        this.board = board;
 
         buyConditions(position, name);
 
@@ -27,7 +27,8 @@ public class BuyCommand {
         }
 
         else{
-            board.newOwner(position, playerName);//propertyholder.get(position).nOwner(position, playerName);
+            //board.newOwner(position, playerName);//propertyholder.get(position).nOwner(position, playerName);
+            board.propertyholder.get(position).setOwner(playerName);
             players.setMoney(players.getMoney() - board.propertyholder.get(position).getCost());
             System.out.println(board.propertyholder.get(position).getName() + " is now owned by: " + board.propertyholder.get(position).getOwner());
         }

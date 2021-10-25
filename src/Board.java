@@ -3,9 +3,11 @@ import java.util.*;
 public class Board {
     //propertyholder is a map of the whole board
     public HashMap<Integer, Property> propertyholder;
+
     //private final Integer[] boardspaces = new Integer[25];
     //might want to use an array later instead of using integers directly in the map
     public Board (){
+
         propertyholder = new HashMap<>();
         Property go = new Property("Go", 0, false, 0, true, "");
         propertyholder.put(0,go);
@@ -65,9 +67,9 @@ public class Board {
         return this.propertyholder;
     }
 
-    public void newOwner(int pos,String n){
+    /*public void newOwner(int pos,String n){
         propertyholder.get(pos).setOwner(n);
-    }
+    }*/
 
     public static void main(String[] args) {
         Board board = new Board();

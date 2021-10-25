@@ -5,5 +5,6 @@ public enum GameState {
     PAY,
     BUY,
     PASS,
-    BANKRUPT
+    BANKRUPT,
+    GAMEOVER
 }
