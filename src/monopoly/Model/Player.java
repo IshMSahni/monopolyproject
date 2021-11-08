@@ -1,10 +1,12 @@
-import java.util.*;
+package monopoly.Model;
+
+import monopoly.Config;
 
 /**
  * @author Aayush Mallya
  * Sets up the Player Object
  */
-public class Players {
+public class Player {
 
 
 
@@ -14,12 +16,17 @@ public class Players {
 
 
 
-    public Players(String name, int money, int position){
+    public Player(String name, int money, int position){
         this.name = name;
         this.money = money;
         this.position = position;
 
+    }
 
+    public int go(int dice_point){
+        position += dice_point;
+        position %= Config.BOARD_SIZE;
+        return position;
     }
 
 

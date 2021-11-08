@@ -1,4 +1,4 @@
-import java.util.*;
+package monopoly.Model;
 
 /**
  * @author Aayush Mallya
@@ -49,6 +49,11 @@ public class Property {
 
     public void setOwner(String newOwner){
         this.owner = newOwner;
+        isOwned = true;
+    }
+
+    public boolean isSpecial(){
+        return this.isSpecial;
     }
 
     public String getOwner(){
@@ -72,7 +77,7 @@ public class Property {
     }*/
 
     public int getRent(int cost){
-       // return (int)((0.1 * property.getCost()) + (0.05 * property.getNumHouses()) + (0.1 * property.getNumHotels()));
+        // return (int)((0.1 * property.getCost()) + (0.05 * property.getNumHouses()) + (0.1 * property.getNumHotels()));
         return (int)(0.1 * cost);
     }
 

@@ -1,15 +1,15 @@
-import java.util.*;
+package monopoly.Model;
 
 /**
  * @author Aayush Mallya
  * Code for the Buy Command
  */
 public class BuyCommand {
-    private Players players;
+    private Player players;
     private Property property;
-    private Board board;
+    private monopoly.Model.Board board;
 
-    public BuyCommand(Players players, int position, String name, Board board){
+    public BuyCommand(Player players, int position, String name, monopoly.Model.Board board){
         this.players = players;
         this.board = board;
 

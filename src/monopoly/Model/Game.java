@@ -1,3 +1,5 @@
+package monopoly.Model;
+
 import java.util.*;
 import java.util.Scanner;
 
@@ -5,10 +7,10 @@ import java.util.Scanner;
  * @author Aayush Mallya
  */
 public class Game  {
-    private List <Players> players;
+    private List <Player> players;
     private Board board;
-    private Players p1;
-    private  BuyCommand command;
+    private Player p1;
+    private BuyCommand command;
     private PrintCommand printCommand;
     private int numberPlayers;
     private  int com;
@@ -27,11 +29,11 @@ public class Game  {
      * Adds a player object to the list of players
      * @param player
      */
-    public void addPlayer(Players player){
+    public void addPlayer(Player player){
         players.add(player);
     }
 
-    public Players removePlayer(int index){
+    public Player removePlayer(int index){
 
         if(index >= 0 && index < players.size()){
             return players.remove(index);
@@ -46,7 +48,7 @@ public class Game  {
     public void setup(){
 
         Scanner c = new Scanner(System.in);
-        System.out.println("Welcome to Monopoly! How many players will be playing? (2-4 Players permitted) ");
+        System.out.println("Welcome to Monopoly! How many players will be playing? (2-4 monopoly.Model.Players permitted) ");
         this.state = GameState.SET_UP;
 
         while (numberPlayers < 2 || numberPlayers > 4) { //ensures the user inputs number of players between 2-6
@@ -69,7 +71,7 @@ public class Game  {
         for(int i = 0; i < numberPlayers; i++){
             System.out.print ("Player " + (i + 1) + ": " );
             String name = c.nextLine();
-            Players player = new Players(name, 500, 1);
+            Player player = new Player(name, 500, 1);
             addPlayer(player);
 
         }
@@ -82,7 +84,7 @@ public class Game  {
 
 
     /**
-     * Depending on the Game State it will dispatch actions
+     * Depending on the monopoly.Model.Game State it will dispatch actions
      * @param state
      */
     private void actionDispatch(GameState state){

@@ -1,3 +1,5 @@
+package monopoly.Model;
+
 import java.util.*;
 
 public class Board {
@@ -13,7 +15,7 @@ public class Board {
         propertyholder.put(0,go);
         Property p2 = new Property("Mediterranean Avenue", 60, false,1, false, "");
         propertyholder.put(1,p2);
-        Property p3 = new Property("Baltic", 60, false,2, false, "");
+        Property  p3 = new Property("Baltic Avenue", 60, false,2, false, "");
         propertyholder.put(2,p3);
         Property p4 = new Property("Oriental Avenue", 100, false,3, false, "");
         propertyholder.put(3,p4);
@@ -67,15 +69,12 @@ public class Board {
         return this.propertyholder;
     }
 
-    /*public void newOwner(int pos,String n){
-        propertyholder.get(pos).setOwner(n);
-    }*/
+    /*
 
-    public static void main(String[] args) {
-        Board board = new Board();
+        monopoly.monopoly.Model.Board board = new monopoly.monopoly.Model.Board();
         board.getProperties();
-        Property info1 = board.propertyholder.get(24);
+        monopoly.monopoly.Model.Property info1 = board.propertyholder.get(24);
         System.out.println(info1.getName() + "," + info1.getCost() + "," + info1.isOwned() + "," + info1.getPosition() +"," + info1.getRent(info1.getCost()));
 
-    }
+    */
 }
