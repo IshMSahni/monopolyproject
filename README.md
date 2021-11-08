@@ -1,16 +1,16 @@
-#Milestone 2
+# Milestone 2
 
-##User Manual:
+## User Manual:
 
 Navigate to the 'MonopolyGUI' class. Then from the IntelliJ toolbar select 
 Run -> Run 'MonopolyGUI'.
 Upon filling ou the prompts for number of players, and player names; you will be able to play the game. 
 
-##Objective:
+## Objective:
 
 In this Milestone we implemented a GUI-based version of the Monopoly game designed in milestone 1. This iteration made use of JFrame as well as ActionListeners to allow for the game to be played via mouse input. 
 
-##GUI Explained: 
+## GUI Explained: 
 
 The top right of the panel contains buttons allowing the player to roll dice, skip their turn, or surrender. 
 
@@ -21,7 +21,7 @@ Below the board is information pertaining to the players; specifically their nam
 The players are represented by different coloured orbs on the board.
 Each property is coloured based on their colour set, and once purchased a banner at the top of each property will have a colour corresponding to its owners colour.
 
-##Design Decisions:
+## Design Decisions:
 
 The three actions: Roll Dice, End Round, and Surrender are seperated into their own classes. These classes implement ActionListeners so that their functions can be triggered when the button is pressed. RollActionEvent utilises Threads to allow for its functions to be delayed so that the dice rolling 'animation' can be played.
 
