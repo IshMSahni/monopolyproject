@@ -1,7 +1,5 @@
 package monopoly.Model;
 
-import monopoly.Config;
-
 /**
  * @author Aayush Mallya
  * Sets up the Player Object
