@@ -1,7 +1,7 @@
 package test.monopoly;
 
 import monopoly.DialogProvider;
-import monopoly.Model.Player;
+import monopoly.Model.Players;
 import monopoly.MonopolyGUI;
 
 import org.junit.Assert;
@@ -131,13 +131,13 @@ class MonopolyTest {
             fail();
         }
 
-        Player player = new Player("Player_0", 0, 0);
+        Players players = new Players("Player_0", 0, 0);
 
         try{
             DefaultListModel<String> message_model =  game.ut_get_message_model();
             message_model.clear();
 
-            method.invoke(game, player);
+            method.invoke(game, players);
             assertTrue(message_model.get(0).equals("It is now Player_0's turn."));
         }
         catch (Exception e){

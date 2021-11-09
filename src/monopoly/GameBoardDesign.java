@@ -1,6 +1,7 @@
 package monopoly;
 
 import monopoly.panels.BoardPanel;
+import monopoly.panels.DicePanel;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -68,8 +69,8 @@ public class GameBoardDesign extends JFrame {
 
     public JList player_list;
 
-    public DicePanel.DicePanel panel_dice;
-    public DicePanel.DicePanel panel_dice2;
+    public DicePanel panel_dice;
+    public DicePanel panel_dice2;
     public JButton btn_roll;
     public JButton btn_end_round;
     public JButton btn_surrender;
@@ -367,11 +368,11 @@ public class GameBoardDesign extends JFrame {
         player_list.setBounds(10, 360, 470, 191);
         contentPane.add(player_list);
 
-        panel_dice = new DicePanel.DicePanel();
+        panel_dice = new DicePanel();
         panel_dice.setBounds(250, 110, 70, 70);
         contentPane.add(panel_dice);
 
-        panel_dice2 = new DicePanel.DicePanel();
+        panel_dice2 = new DicePanel();
         panel_dice2.setBounds(170, 110, 70, 70);
         contentPane.add(panel_dice2);
 

@@ -7,9 +7,9 @@ import java.util.Scanner;
  * @author Aayush Mallya
  */
 public class Game  {
-    private List <Player> players;
+    private List <Players> players;
     private Board board;
-    private Player p1;
+    private Players p1;
     private BuyCommand command;
     private PrintCommand printCommand;
     private int numberPlayers;
@@ -27,13 +27,13 @@ public class Game  {
 
     /**
      * Adds a player object to the list of players
-     * @param player
+     * @param players
      */
-    public void addPlayer(Player player){
-        players.add(player);
+    public void addPlayer(Players players){
+        this.players.add(players);
     }
 
-    public Player removePlayer(int index){
+    public Players removePlayer(int index){
 
         if(index >= 0 && index < players.size()){
             return players.remove(index);
@@ -71,8 +71,8 @@ public class Game  {
         for(int i = 0; i < numberPlayers; i++){
             System.out.print ("Player " + (i + 1) + ": " );
             String name = c.nextLine();
-            Player player = new Player(name, 500, 1);
-            addPlayer(player);
+            Players players = new Players(name, 500, 1);
+            addPlayer(players);
 
         }
         System.out.println(" \n These are the player names: ");

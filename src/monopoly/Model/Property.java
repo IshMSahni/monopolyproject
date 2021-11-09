@@ -82,16 +82,6 @@ public class Property {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    public void removeOwner() {
+    }
 }

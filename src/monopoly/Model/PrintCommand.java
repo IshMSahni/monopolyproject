@@ -5,17 +5,17 @@ package monopoly.Model;
  * Code for printing the current player state
  */
 public class PrintCommand {
-    private Player players;
+    private Players players;
     private Property property;
     private Board board;
 
-    public PrintCommand(Player players, Board board){
+    public PrintCommand(Players players, Board board){
         this.players = players;
         this.board = board;
         printState(players);
     }
 
-    public void printState(Player players){
+    public void printState(Players players){
         System.out.println("\nPlayer Name: " + players.getName() + "\nMoney: " + players.getMoney() + "\nPosition: " + players.getPosition());
         System.out.println("Properties Owned: ");
         for(int i = 0; i < board.getProperties().size(); i++){

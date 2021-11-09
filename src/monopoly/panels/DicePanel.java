@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Panel to display dice
  */
-public static class DicePanel extends JPanel {
+public class DicePanel extends JPanel {
 
 
     private int x, y, width, height;
@@ -153,4 +153,4 @@ public static class DicePanel extends JPanel {
     }
 
 }
-}
+

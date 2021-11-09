@@ -1,7 +1,7 @@
 package monopoly;
 
 import monopoly.Model.Board;
-import monopoly.Model.Player;
+import monopoly.Model.Players;
 import monopoly.Model.Property;
 import monopoly.panels.BoardPanel;
 
@@ -19,7 +19,7 @@ public class MonopolyGUI extends GameBoardDesign {
     BoardPanel[] boardArray = new BoardPanel[]{board_1, board_2, board_3, board_4, board_5, board_6, board_7, board_8, board_9, board_10, board_11, board_12, board_13, board_14, board_15, board_16, board_17, board_18, board_19, board_20, board_21, board_22, board_23, board_24, board_25, board_26};
     BoardPanel[] ownerArray = new BoardPanel[]{own1, own2, own3, own4, own5, own6,own7, own8, own9, own10, own11, own12, own13, own14, own15, own16, own17, own18, own19, own20, own21, own22, own23, own24, own25, own26};
     Board board;
-    ArrayList<Player> players = new ArrayList<>();
+    ArrayList<Players> players = new ArrayList<>();
 
     Color[] colors = {
             new Color(0xF44336), new Color(0xFFA726),
@@ -138,8 +138,8 @@ public class MonopolyGUI extends GameBoardDesign {
      */
     public void ut_setup_player_info(){
         for(int i = 0; i < 4; i++){
-            Player player = new Player("Player_" + i, 0, 0);
-            players.add(player);
+            Players players = new Players("Player_" + i, 0, 0);
+            this.players.add(players);
         }
     }
 
@@ -148,7 +148,7 @@ public class MonopolyGUI extends GameBoardDesign {
      */
     void update_player_info(){
         player_model.clear();
-        for (Player p: players) {
+        for (Players p: players) {
             String info = "";
             info += "Player: ";
             info += p.getName();
@@ -215,15 +215,15 @@ public class MonopolyGUI extends GameBoardDesign {
             }
     }
 
-    Player current_player_object = null;
+    Players current_players_object = null;
 
     /**
      * Change current player
-     * @param player
+     * @param players
      */
-    public void change_player(Player player){
-        current_player_object = player;
-        add_message("It is now " + current_player_object.getName() + "'s turn.");
+    public void change_player(Players players){
+        current_players_object = players;
+        add_message("It is now " + current_players_object.getName() + "'s turn.");
     }
 
     /**
@@ -241,7 +241,7 @@ public class MonopolyGUI extends GameBoardDesign {
             boardArray[i].clear_players();
         }
 
-        for (Player p: players) {
+        for (Players p: players) {
             Integer position = p.getPosition();
             boardArray[position].add_player(colors[players.indexOf(p)]);
         }
@@ -255,8 +255,8 @@ public class MonopolyGUI extends GameBoardDesign {
      * @param name name
      * @return
      */
-    Player find_player_by_name(String name){
-        for (Player p: players) {
+    Players find_player_by_name(String name){
+        for (Players p: players) {
             if(p.getName().equals(name)){
                 return p;
             }
@@ -266,12 +266,12 @@ public class MonopolyGUI extends GameBoardDesign {
 
     /**
      * Remove player from game
-     * @param player player to remove
+     * @param players player to remove
      * @param reason reason
      */
-    public void remove_player(Player player, String reason){
-        players.remove(player);
-        add_message(player.getName() + " was removed from the game for " + reason);
+    public void remove_player(Players players, String reason){
+        this.players.remove(players);
+        add_message(players.getName() + " was removed from the game for " + reason);
         update_player_info();
     }
 
@@ -287,7 +287,7 @@ public class MonopolyGUI extends GameBoardDesign {
     private void setup(){
         player_number = ask_for_player_number();
         for (int i = 0; i < player_number; i++) {
-            players.add(new Player(ask_for_player_name(i), Config.PLAYER_INITIAL_MONEY, 0));
+            players.add(new Players(ask_for_player_name(i), Config.PLAYER_INITIAL_MONEY, 0));
             add_message("Added player: " + players.get(players.size() - 1).getName());
         }
         update_player_info();

@@ -1,5 +1,8 @@
 package monopoly;
 
+import monopoly.Model.Board;
+import monopoly.Model.Players;
+
 import java.util.List;
 
 public class Bankrupt {

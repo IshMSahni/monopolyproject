@@ -5,11 +5,11 @@ package monopoly.Model;
  * Code for the Buy Command
  */
 public class BuyCommand {
-    private Player players;
+    private Players players;
     private Property property;
     private monopoly.Model.Board board;
 
-    public BuyCommand(Player players, int position, String name, monopoly.Model.Board board){
+    public BuyCommand(Players players, int position, String name, monopoly.Model.Board board){
         this.players = players;
         this.board = board;
 

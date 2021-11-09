@@ -4,7 +4,7 @@
 
 Navigate to the 'MonopolyGUI' class. Then from the IntelliJ toolbar select 
 Run -> Run 'MonopolyGUI'.
-Upon filling ou the prompts for number of players, and player names; you will be able to play the game. 
+Upon filling ou the prompts for number of players, and players names; you will be able to play the game. 
 
 ## Objective:
 
@@ -12,7 +12,7 @@ In this Milestone we implemented a GUI-based version of the Monopoly game design
 
 ## GUI Explained: 
 
-The top right of the panel contains buttons allowing the player to roll dice, skip their turn, or surrender. 
+The top right of the panel contains buttons allowing the players to roll dice, skip their turn, or surrender. 
 
 The text box below displays information of the events transpiring whilst playing.
 

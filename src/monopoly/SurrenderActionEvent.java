@@ -1,7 +1,6 @@
 package monopoly;
 
-import monopoly.Model.Player;
-import monopoly.MonopolyGUI;
+import monopoly.Model.Players;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -17,19 +16,19 @@ public class SurrenderActionEvent implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.err.println("Player: " + game.current_player_object.getName() + " ended Round!");
+        System.err.println("Player: " + game.current_players_object.getName() + " ended Round!");
 
         if(game.players.size() == 1){
-            JOptionPane.showMessageDialog(game.self, " Player: " + game.current_player_object.getName() + " won the game!");
+            JOptionPane.showMessageDialog(game.self, " Player: " + game.current_players_object.getName() + " won the game!");
             System.exit(0);
         }
 
-        game.add_message("Player: " + game.current_player_object.getName() + " ended Round!");
-        Player next_player = game.players.get((game.players.indexOf(game.current_player_object) + 1) % game.players.size());
-        if(game.current_player_object.getMoney() <= 0){
-            game.remove_player(game.current_player_object, "Surrender");
+        game.add_message("Player: " + game.current_players_object.getName() + " ended Round!");
+        Players next_players = game.players.get((game.players.indexOf(game.current_players_object) + 1) % game.players.size());
+        if(game.current_players_object.getMoney() <= 0){
+            game.remove_player(game.current_players_object, "Surrender");
         }
-        game.change_player(next_player);
+        game.change_player(next_players);
         game.btn_roll.setEnabled(true);
     }
 
