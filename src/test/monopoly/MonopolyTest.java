@@ -10,6 +10,7 @@ import test.monopoly.util.Reflection;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ import static org.junit.Assert.*;
 class MonopolyTest {
 
     @Test
-    void ask_for_player_number() {
+    static void ask_for_player_number() {
         ArrayList<Integer> results = new ArrayList<>();
         ArrayList<Integer> expects = new ArrayList<>();
         expects.add(2);
@@ -49,7 +50,7 @@ class MonopolyTest {
     }
 
     @Test
-    void ask_for_player_name() {
+    static void ask_for_player_name() {
         MonopolyGUI game = new MonopolyGUI();
         Method method = Reflection.get_method(MonopolyGUI.class, "ask_for_player_name");
 
@@ -72,7 +73,7 @@ class MonopolyTest {
     }
 
     @Test
-    void add_message(){
+    static void add_message(){
         MonopolyGUI game = new MonopolyGUI();
         Method method = Reflection.get_method(MonopolyGUI.class, "add_message");
 
@@ -93,7 +94,7 @@ class MonopolyTest {
     }
 
     @Test
-    void update_player_info(){
+    static void update_player_info(){
         MonopolyGUI game = new MonopolyGUI();
 
         game.ut_setup_player_info();
@@ -117,13 +118,10 @@ class MonopolyTest {
             e.printStackTrace(System.err);
         }
 
-
-
-
     }
 
     @Test
-    void change_player(){
+    static void change_player(){
         MonopolyGUI game = new MonopolyGUI();
         Method method = Reflection.get_method(MonopolyGUI.class, "change_player");
 
@@ -146,5 +144,11 @@ class MonopolyTest {
         }
     }
 
-
+    public static void main(String[] args) {
+        ask_for_player_number();
+        //ask_for_player_name(); This is made to be tested in a game that is already running.
+        add_message();
+        update_player_info();
+        change_player();
+    }
 }
