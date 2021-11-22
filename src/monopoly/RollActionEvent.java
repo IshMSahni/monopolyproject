@@ -143,7 +143,7 @@ public class RollActionEvent implements ActionListener {
 
         game.add_message("Player: " + game.current_players_object.getName() + " Rolled " + game.final_dice_point);
 
-        game.current_players_object.go(game.final_dice_point);
+        game.current_players_object.go(10);
 
         game.apply_colors();
 
@@ -217,7 +217,7 @@ public class RollActionEvent implements ActionListener {
                 if ((current_board.getName().equals("Water Works") || current_board.getName().equals("Electric Company"))) {
                     if (current_board.getOwner().equals(game.current_players_object.getName())) {
                     } else {
-                        Integer rent = current_board.getUtilityRent(current_board.getCost(), game.final_dice_point, current_board.getOwner());
+                        Integer rent = current_board.getUtilityRent(game.board, game.final_dice_point, current_board.getOwner());
                         if (game.current_players_object.getMoney() >= rent) {
                             game.current_players_object.setMoney(game.current_players_object.getMoney() - rent);
                             Players owner_players = game.find_player_by_name(current_board.getOwner());

@@ -106,7 +106,7 @@ public class Property {
         return (int)(0.1 * cost * count);
     }
 
-    public int getUtilityRent(int cost, Integer roll, String owner){
+    public int getUtilityRent(Board board, Integer roll, String owner){
 
         if (board.getProperty(10).getOwner().equals(owner) && board.getProperty(24).getOwner().equals(owner)){
             return roll/2 * 10;
