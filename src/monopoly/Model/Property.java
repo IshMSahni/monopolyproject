@@ -19,6 +19,7 @@ public class Property {
     private boolean isSpecialBuyable;
     private int numHouses;
     private int numHotels;
+    private int groupNum;
 
     public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial, String owner, boolean isSpecialBuyable){
         this.name = name;
@@ -28,6 +29,17 @@ public class Property {
         this.isSpecial = isSpecial;
         this.owner = owner;
         this.isSpecialBuyable = isSpecialBuyable;
+    }
+
+    public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial, String owner, boolean isSpecialBuyable, int groupNum){
+        this.name = name;
+        this.cost = cost;
+        this.isOwned = isOwned;
+        this.position = position;
+        this.isSpecial = isSpecial;
+        this.owner = owner;
+        this.isSpecialBuyable = isSpecialBuyable;
+        this.groupNum = groupNum;
     }
 
     public String getName(){
@@ -67,7 +79,7 @@ public class Property {
         return  this.owner;
     }
 
-  /*  private void addHouse(int num){
+    private void addHouse(int num){
         this.numHouses += num;
     }
 
@@ -81,7 +93,11 @@ public class Property {
 
     public int getNumHotels(){
         return numHotels;
-    }*/
+    }
+
+    public int getGroupNum(){
+        return groupNum;
+    }
 
     public int getRent(int cost){
         // return (int)((0.1 * property.getCost()) + (0.05 * property.getNumHouses()) + (0.1 * property.getNumHotels()));
