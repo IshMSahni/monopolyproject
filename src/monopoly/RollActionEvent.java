@@ -141,15 +141,7 @@ public class RollActionEvent implements ActionListener {
                     free_parking_money = 0;
                 }
                 else if (current_board.getName().equals("Go To Jail")) {
-                    game.add_message("Oh no! Player: " + player.getName() + " is going to jail.");
-                    player.setPosition(8);
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                    game.apply_colors();
-                    player.goToJail();
+                    goToJail();
                 } else if (current_board.getPosition() - game.final_dice_point <= 34 && current_board.getPosition() - game.final_dice_point >= 22 && (current_board.getPosition() >= 0) && current_board.getPosition() <= 12) {
                     player.setMoney(player.getMoney() + 200);
                     game.add_message("Player: " + player.getName() + "Just passed Go! They got: $" + 200 + ".");
