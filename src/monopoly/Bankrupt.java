@@ -24,4 +24,15 @@ public class Bankrupt {
             }
         }
     }
+    public void DeclareSpecificBankruptcy(Players Player, Board board) {
+
+        System.out.println("Oh no" + Player.getName() + "went bankrupt \n" +
+                "All of their properties are now available for purchase when landed on!");
+        for (int j = 0; j < board.getProperties().size(); j++) {
+            if (board.propertyholder.get(j).getOwner().equalsIgnoreCase(Player.getName())) {
+                board.propertyholder.get(j).setOwner("");
+                board.propertyholder.get(j).removeOwner();
+            }
+        }
+    }
 }
