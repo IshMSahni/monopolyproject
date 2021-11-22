@@ -338,7 +338,7 @@ public class MonopolyGUI extends GameBoardDesign {
     private void setup(){
         AI_number = ask_for_AI_number();
         for (int i = 0; i < AI_number; i++) {
-            players.add(new Players("AI " + (i + 1), Config.PLAYER_INITIAL_MONEY, 0, true));
+            players.add(new Players("AI Number " + (i + 1), Config.PLAYER_INITIAL_MONEY, 0, true));
             add_message("Added player: " + players.get(players.size() - 1).getName());
         }
 

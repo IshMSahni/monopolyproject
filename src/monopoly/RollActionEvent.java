@@ -25,6 +25,12 @@ public class RollActionEvent implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+           rollDice();
+
+
+        }
+
+        public void rollDice(){
             System.err.println("Roll!");
             this.dice_point1 = new Random().nextInt(6) + 1;
             this.dice_point = new Random().nextInt(6) + 1;
@@ -32,13 +38,11 @@ public class RollActionEvent implements ActionListener {
             game.btn_roll.setEnabled(false);
             Players player = game.current_players_object;
             new Thread(() -> {
-                    jailEvaluation(player);
-                    game.update_propertyp();
-                    game.update_player_info();
-
+                jailEvaluation(player);
+                game.update_propertyp();
+                game.update_player_info();
+                game.btn_roll.setEnabled(false);
             }).start();
-
-
         }
 
     final class DiceResult {
@@ -92,7 +96,8 @@ public class RollActionEvent implements ActionListener {
 
         game.add_message("Player: " + player.getName() + " Rolled " + game.final_dice_point);
 
-        player.go(26);
+        player.go(game.final_dice_point);
+       // player.go(26);
 
         game.apply_colors();
 
@@ -100,7 +105,7 @@ public class RollActionEvent implements ActionListener {
 
         Property current_board = game.board.getProperties().get(new_position);
 
-        if ((!current_board.isOwned() && !current_board.isSpecial()) && !game.current_players_object.checkAI() || (!current_board.isOwned() && current_board.isSpecialBuyable())) {
+        if ((!current_board.isOwned() && !current_board.isSpecial() && !game.current_players_object.checkAI()) || (!current_board.isOwned() && current_board.isSpecialBuyable() && !game.current_players_object.checkAI())) {
             if (current_board.isSpecialBuyable()) {
                 game.add_message(
                         "" +
@@ -117,13 +122,14 @@ public class RollActionEvent implements ActionListener {
                 }
             }
         }
-        else if(!current_board.isOwned() && !current_board.isSpecial() && game.current_players_object.checkAI() == true){
+        else if((!current_board.isOwned() && !current_board.isSpecial() && game.current_players_object.checkAI()) || (!current_board.isOwned() && current_board.isSpecialBuyable()) && game.current_players_object.checkAI()){
+            game.btn_roll.setEnabled(false);
             if (game.current_players_object.getMoney() >= current_board.getCost()) {
                 game.current_players_object.setMoney(game.current_players_object.getMoney() - current_board.getCost());
                 current_board.setOwner(game.current_players_object.getName());
             }
-
         }
+
 
         else if (current_board.isSpecial()) {
             game.add_message(
@@ -206,14 +212,29 @@ public class RollActionEvent implements ActionListener {
     }
 
     public void jailEvaluation(Players player){
+        int aiTimeInJail = 0;
         if (player.getInJail()){
+
+
+
             player.incrementTurnsInJail();
             game.add_message(
                     "Player: " +
                             player.getName() +
                             " is currently in jail. This is turn " + player.getTurnsInJail() + " in jail." );
             if(player.getTurnsInJail() <= 4) {
+
                 if (player.getMoney() >= 50){
+
+                    if(game.current_players_object.checkAI()){
+                        player.setMoney(player.getMoney() - 50);
+                        game.add_message("Player: " +
+                                player.getName() +
+                                " paid $50 to get out of jail.");
+                        player.getOutofJail();
+                        playerTurn();
+                    }
+                    else{
                     String[] buttons = {"Roll for Doubles", "Pay $50"};
                     int returnValue = JOptionPane.showOptionDialog(game.self, "You can either roll for doubles or get out of jail by paying $50.", "Jail options",
                             JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]);
@@ -232,21 +253,28 @@ public class RollActionEvent implements ActionListener {
                         player.getOutofJail();
                         playerTurn();
                     }
-                } else{
-
-                    String[] buttons = {"Roll for Doubles"};
-                    int returnValue = JOptionPane.showOptionDialog(game.self, "You can only roll for doubles.", "Jail options",
-                            JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[0]);
-                    if (returnValue == 0){
+                }} else {
+                    if (game.current_players_object.checkAI()) {
                         DiceResult roll = this.RollDice();
-                        if (roll.first == roll.second){
+                        if (roll.first == roll.second) {
                             player.setTurnsInJail();
                             player.getOutofJail();
                             playerTurn();
                         }
+                    } else {
+                        String[] buttons = {"Roll for Doubles"};
+                        int returnValue = JOptionPane.showOptionDialog(game.self, "You can only roll for doubles.", "Jail options",
+                                JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[0]);
+                        if (returnValue == 0) {
+                            DiceResult roll = this.RollDice();
+                            if (roll.first == roll.second) {
+                                player.setTurnsInJail();
+                                player.getOutofJail();
+                                playerTurn();
+                            }
+                        }
                     }
-                }
-            }
+                }}
             else {
                 player.setTurnsInJail();
                 game.add_message(
