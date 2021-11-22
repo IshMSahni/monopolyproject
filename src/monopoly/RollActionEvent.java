@@ -15,11 +15,12 @@ public class RollActionEvent implements ActionListener {
     private int dice_point1;
     private int dice_point;
     private int free_parking_money;
+    private int doublesIncrement;
 
 
     public RollActionEvent(MonopolyGUI game){
         this.game = game;
-
+        this.doublesIncrement = 0;
 
     }
 
@@ -34,6 +35,9 @@ public class RollActionEvent implements ActionListener {
             System.err.println("Roll!");
             this.dice_point1 = new Random().nextInt(6) + 1;
             this.dice_point = new Random().nextInt(6) + 1;
+//            this.dice_point1 = 3;
+//            this.dice_point = 3;
+
             this.free_parking_money = 0;
             game.btn_roll.setEnabled(false);
             Players player = game.current_players_object;
@@ -59,6 +63,7 @@ public class RollActionEvent implements ActionListener {
         while (i < 15) {
             game.panel_dice.set_prop(new Random().nextInt(6) + 1);
             game.panel_dice2.set_prop(new Random().nextInt(6) + 1);
+
             game.panel_dice.repaint();
             game.panel_dice2.repaint();
             try {
@@ -78,6 +83,7 @@ public class RollActionEvent implements ActionListener {
 
     private void goToJail(){
         Players player = game.current_players_object;
+        doublesIncrement = 0;
         game.add_message("Oh no! Player: " + player.getName() + " is going to jail.");
         player.setPosition(8);
         try {
@@ -92,6 +98,7 @@ public class RollActionEvent implements ActionListener {
     public void playerTurn(){
         Players player = game.current_players_object;
         DiceResult roll = this.RollDice();
+
         game.final_dice_point = roll.first + roll.second;
 
         game.add_message("Player: " + player.getName() + " Rolled " + game.final_dice_point);
@@ -190,6 +197,18 @@ public class RollActionEvent implements ActionListener {
 
             }
         }
+//        if(roll.first == roll.second && doublesIncrement < 3 && game.current_players_object.checkAI()){
+//            game.add_message("Player: " + player.getName() + "rolled a double!");
+//            doublesIncrement++;
+//            playerTurn();
+//        }
+//
+//        else if(doublesIncrement == 3){
+//            game.add_message("Oh no! Player: " + player.getName() + "rolled a double 3 times in a row! They are now in jail!");
+//            goToJail();
+//
+//        }
+
     }
 
     private void BankruptcyDeclare(Players player){
@@ -212,11 +231,8 @@ public class RollActionEvent implements ActionListener {
     }
 
     public void jailEvaluation(Players player){
-        int aiTimeInJail = 0;
+
         if (player.getInJail()){
-
-
-
             player.incrementTurnsInJail();
             game.add_message(
                     "Player: " +
