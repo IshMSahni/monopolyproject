@@ -17,7 +17,6 @@ public class Players {
     private boolean inJail;
     private int turnsInJail;
 
-
     public Players(String name, int money, int position){
         this.name = name;
         this.money = money;
@@ -31,6 +30,7 @@ public class Players {
         position %= Config.BOARD_SIZE;
         return position;
     }
+
 
     public void goToJail(){
         inJail = true;
@@ -81,3 +81,4 @@ public class Players {
     }
 
 }
+
