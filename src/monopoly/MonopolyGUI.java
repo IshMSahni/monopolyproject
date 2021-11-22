@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class MonopolyGUI extends GameBoardDesign {
 
-    BoardPanel[] boardArray = new BoardPanel[]{board_1, board_2, board_3, board_4, board_5, board_6, board_7, board_8, board_9, board_10, board_11, board_12, board_13, board_14, board_15, board_16, board_17, board_18, board_19, board_20, board_21, board_22, board_23, board_24, board_25, board_26};
-    BoardPanel[] ownerArray = new BoardPanel[]{own1, own2, own3, own4, own5, own6,own7, own8, own9, own10, own11, own12, own13, own14, own15, own16, own17, own18, own19, own20, own21, own22, own23, own24, own25, own26};
+    BoardPanel[] boardArray = new BoardPanel[]{board_1, board_2, board_3, board_4, board_5, board_6, board_7, board_8, board_9, board_10, board_11, board_12, board_13, board_14, board_15, board_16, board_17, board_18, board_19, board_20, board_21, board_22, board_23, board_24, board_25, board_26, board_27, board_28, board_29, board_30, board_31, board_32, board_33, board_34};
+    BoardPanel[] ownerArray = new BoardPanel[]{own1, own2, own3, own4, own5, own6,own7, own8, own9, own10, own11, own12, own13, own14, own15, own16, own17, own18, own19, own20, own21, own22, own23, own24, own25, own26, own27, own28, own29, own30, own31, own32, own33, own34};
     Board board;
     ArrayList<Players> players = new ArrayList<>();
 
@@ -39,7 +39,7 @@ public class MonopolyGUI extends GameBoardDesign {
     public MonopolyGUI() {
         super();
         setTitle("Monopoly");
-        setSize(800, 600);
+        setSize(865, 700);
 
         ToolTipManager.sharedInstance().setInitialDelay(1);
 
@@ -104,6 +104,11 @@ public class MonopolyGUI extends GameBoardDesign {
             player_name = DialogProvider.getInstance().show_input_dialog(self, "What is your name? Player " + (i + 1));
         }
         return player_name;
+    }
+
+    @Override
+    public Component add(Component comp) {
+        return super.add(comp);
     }
 
     /**
@@ -179,7 +184,7 @@ public class MonopolyGUI extends GameBoardDesign {
      * Update info when mouse cursor is on a tile
      */
     public void update_propertyp(){
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < 34; i++) {
             Property property = board.getProperties().get(i);
             String tooltip_info = "";
             tooltip_info += "<html>";
