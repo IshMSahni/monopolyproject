@@ -1,4 +1,4 @@
-# Milestone 2
+# Milestone 3
 
 ## User Manual:
 
@@ -8,7 +8,10 @@ Upon filling ou the prompts for number of players, and players names; you will b
 
 ## Objective:
 
-In this Milestone we implemented a GUI-based version of the Monopoly game designed in milestone 1. This iteration made use of JFrame as well as ActionListeners to allow for the game to be played via mouse input. 
+In this Milestone we implemented additional features based on our version of the Monopoly game designed in milestone 2. This iteration has the following features:
+- An AI that will play the game autonomously
+- Added special property functionality, and updated the board 
+- Added ability to purchase houses and hotels 
 
 ## GUI Explained: 
 
@@ -23,10 +26,9 @@ Each property is coloured based on their colour set, and once purchased a banner
 
 ## Design Decisions:
 
-The three actions: Roll Dice, End Round, and Surrender are seperated into their own classes. These classes implement ActionListeners so that their functions can be triggered when the button is pressed. RollActionEvent utilises Threads to allow for its functions to be delayed so that the dice rolling 'animation' can be played.
+The RollActionEvent handles the brunt of the processing. This is because the addition of special properties directly influences the outcome of the RollActionEvent, (if a player lands on a railroad for example, they should be able to buy it). These special properties were grouped into 2 categories; ones that are purchasable, and those with static events such as tax or jail.
 
-The design and layout of the board is declared in a seperate class called 'GameBoardDesign' as to allow for easy modifications for future milestones. Simalarily the 'panels' folder conatins classes for bothe the board panel itself, and the dice pannel. 
+The AI was desigbned to automatically roll the dice and purchase the property it lands on should it have the funds. The AI turn is intentionally ended via the user clicking the 'End Round' button. This was done so that should the game consist of only AI players, the user would still be able to follow along. The use of delays were tested, however it was found that they would not be able to delay the moves enough without making the game feel as if it were lagging. If the AI is ion jail, it will pay the exit fee if it has the funds; otherwise it will attempt to roll a double.
 
-MonopolyGUI is the class in which the game is setup and run form. It calls 'GameBoardDesign' properties to create the board as well as prompting the user for the relevant information. It is also responsible for updating the GUI as the game progresses.
 
 
