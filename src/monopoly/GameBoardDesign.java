@@ -523,15 +523,15 @@ public class GameBoardDesign extends JFrame {
         contentPane.add(panel_dice2);
 
         btn_roll = new JButton("Roll");
-        btn_roll.setBounds(620, 39, 93, 23);
+        btn_roll.setBounds(620, 39, 100, 23);
         contentPane.add(btn_roll);
 
         btn_end_round = new JButton("End Round");
-        btn_end_round.setBounds(620, 72, 93, 23);
+        btn_end_round.setBounds(620, 72, 100, 23);
         contentPane.add(btn_end_round);
 
         btn_surrender = new JButton("Surrender");
-        btn_surrender.setBounds(620, 105, 93, 23);
+        btn_surrender.setBounds(620, 105, 100, 23);
         contentPane.add(btn_surrender);
 
         lblNewLabel = new JLabel("Action:");

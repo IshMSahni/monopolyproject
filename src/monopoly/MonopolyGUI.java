@@ -116,7 +116,7 @@ public class MonopolyGUI extends GameBoardDesign {
      * @param message
      */
     void add_message(String message){
-        if (message_model.size() >= 23){
+        if (message_model.size() >= 28){
             message_model.remove(0);
         }
         message_model.addElement(message);
