@@ -16,7 +16,9 @@ public class AIPlayingEvent {
 
         if (players.checkAI() == true) {
             game.btn_roll.setEnabled(false);
-            new RollActionEvent(game).rollDice();
+                new RollActionEvent(game).rollDice();
+
+
         }
 
     }

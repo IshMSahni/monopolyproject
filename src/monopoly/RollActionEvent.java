@@ -33,10 +33,10 @@ public class RollActionEvent implements ActionListener {
 
         public void rollDice(){
             System.err.println("Roll!");
-            this.dice_point1 = new Random().nextInt(6) + 1;
-            this.dice_point = new Random().nextInt(6) + 1;
-//            this.dice_point1 = 3;
-//            this.dice_point = 3;
+//            this.dice_point1 = new Random().nextInt(6) + 1;
+//            this.dice_point = new Random().nextInt(6) + 1;
+           this.dice_point1 = 3;
+            this.dice_point = 3;
 
             this.free_parking_money = 0;
             game.btn_roll.setEnabled(false);
@@ -104,7 +104,7 @@ public class RollActionEvent implements ActionListener {
         game.add_message("Player: " + player.getName() + " Rolled " + game.final_dice_point);
 
         player.go(game.final_dice_point);
-       // player.go(26);
+
 
         game.apply_colors();
 
@@ -135,6 +135,10 @@ public class RollActionEvent implements ActionListener {
                 game.current_players_object.setMoney(game.current_players_object.getMoney() - current_board.getCost());
                 current_board.setOwner(game.current_players_object.getName());
             }
+        }
+
+        else if(current_board.isOwned()){
+            PayRent(game.current_players_object, current_board.getRent(current_board.getCost()), current_board);
         }
 
 
@@ -197,6 +201,8 @@ public class RollActionEvent implements ActionListener {
 
             }
         }
+
+
 //        if(roll.first == roll.second && doublesIncrement < 3 && game.current_players_object.checkAI()){
 //            game.add_message("Player: " + player.getName() + "rolled a double!");
 //            doublesIncrement++;
