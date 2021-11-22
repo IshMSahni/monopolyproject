@@ -88,7 +88,7 @@ public class RollActionEvent implements ActionListener {
         game.final_dice_point = roll.first + roll.second;
 
         game.add_message("Player: " + player.getName() + " Rolled " + game.final_dice_point);
-
+        Integer old_position = player.getPosition();
         player.go(game.final_dice_point);
 
         game.apply_colors();
@@ -96,6 +96,11 @@ public class RollActionEvent implements ActionListener {
         Integer new_position =player.getPosition();
 
         Property current_board = game.board.getProperties().get(new_position);
+
+        if (old_position <= 34 && old_position >= 23 && (current_board.getPosition() >= 0) && current_board.getPosition() <= 12) {
+            player.setMoney(player.getMoney() + 200);
+            game.add_message("Player: " + player.getName() + "" + " Just passed Go! They got: $" + 200 + ".");
+        }
 
         if ((!current_board.isOwned() && !current_board.isSpecial()) || (!current_board.isOwned() && current_board.isSpecialBuyable())) {
             if (current_board.isSpecialBuyable()) {
@@ -142,9 +147,6 @@ public class RollActionEvent implements ActionListener {
                 }
                 else if (current_board.getName().equals("Go To Jail")) {
                     goToJail();
-                } else if (current_board.getPosition() - game.final_dice_point <= 34 && current_board.getPosition() - game.final_dice_point >= 22 && (current_board.getPosition() >= 0) && current_board.getPosition() <= 12) {
-                    player.setMoney(player.getMoney() + 200);
-                    game.add_message("Player: " + player.getName() + "Just passed Go! They got: $" + 200 + ".");
                 }
             } else {
                 //Utility
