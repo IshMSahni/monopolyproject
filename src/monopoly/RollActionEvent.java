@@ -1,5 +1,6 @@
 package monopoly;
 
+import monopoly.Model.Board;
 import monopoly.Model.Players;
 import monopoly.Model.Property;
 
@@ -167,6 +168,51 @@ public class RollActionEvent implements ActionListener {
 
         } else {
             if (current_board.getOwner().equals(player.getName())) {
+                if(current_board.getNumHotels() == 1){
+                }else{
+                    if(current_board.getNumHouses() == 0){
+                        if(checkSameOwner(game.board, current_board)){
+                            Integer user_select = JOptionPane.showConfirmDialog(game.self, "You can build houses on this property for $" + current_board.getHousePrice() + ". \n Would you like to build on " + game.board.propertyholder.get(current_board.getPosition()).getName() + "?", "Build Houses", JOptionPane.YES_NO_OPTION);
+                            if(user_select == JOptionPane.YES_OPTION){
+                                if(player.getMoney() > current_board.getHousePrice()){
+                                    player.setMoney(player.getMoney() - current_board.getHousePrice());
+                                    current_board.addHouse(1);
+                                    JOptionPane.showMessageDialog(game.self, "You have built a house on this property!");
+                                }else{
+                                    JOptionPane.showMessageDialog(game.self, "Not enough money!");
+                                }
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(game.self, "You need to buy all properties in the same color to build house on them!");
+                        }
+                    }else{
+                        if(checkMultipleHouses(game.board, current_board)){
+                            Integer user_select = JOptionPane.showConfirmDialog(game.self, "You can build houses on this property for $" + current_board.getHousePrice() + ". \n Would you like to build on " + game.board.propertyholder.get(current_board.getPosition()).getName() + "?", "Build Houses", JOptionPane.YES_NO_OPTION);
+                            if(user_select == JOptionPane.YES_OPTION){
+                                if(current_board.getNumHouses() != 4){
+                                    if(player.getMoney() > current_board.getHousePrice()){
+                                        player.setMoney(player.getMoney() - current_board.getHousePrice());
+                                        current_board.addHouse(1);
+                                        JOptionPane.showMessageDialog(game.self, "You have built a house on this property!");
+                                    }else{
+                                        JOptionPane.showMessageDialog(game.self, "Not enough money!");
+                                    }
+                                }else if(current_board.getNumHouses() == 4) {
+                                    if (player.getMoney() > current_board.getHousePrice()) {
+                                        player.setMoney(player.getMoney() - current_board.getHousePrice());
+                                        current_board.clearNumHouse();
+                                        current_board.addHotel(1);
+                                        JOptionPane.showMessageDialog(game.self, "You have built a hotel on this property!");
+                                    }else{
+                                        JOptionPane.showMessageDialog(game.self, "Not enough money!");
+                                    }
+                                }
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(game.self, "You need to have " + current_board.getNumHouses() + " houses on each property of the same color to build more house!");
+                        }
+                    }
+                }
             } else {
                 Integer rent = current_board.getRent(current_board.getCost());
 
@@ -258,6 +304,51 @@ public class RollActionEvent implements ActionListener {
         }
         else {
             playerTurn();
+        }
+    }
+
+    private boolean checkSameOwner(Board board, Property property){
+        ArrayList<Property> properties = new ArrayList<Property>();
+        if(!property.isSpecial()){
+            for(int i = property.getPosition() - 3; i < property.getPosition() + 3; i++){
+                if(!board.getProperties().get(i).isSpecial()){
+                    if(board.getProperties().get(i).getGroupNum() == property.getGroupNum()){
+                        properties.add(board.getProperties().get(i));
+                    }
+                }
+            }
+            for(int j = 0; j < properties.size(); j++){
+                if(properties.get(j).getOwner() != property.getOwner()){
+                    return false;
+                }
+            }
+            return true;
+        }else return false;
+    }
+
+    private boolean checkMultipleHouses(Board board, Property property){
+        ArrayList<Property> properties = new ArrayList<Property>();
+        if(!property.isSpecial()){
+            if(property.getNumHouses() == 0){
+                return false;
+            }else{
+                properties.add(property);
+            }
+            for(int i = property.getPosition() - 3; i < property.getPosition() + 3; i++){
+                if(!board.getProperties().get(i).isSpecial()){
+                    if(board.getProperties().get(i).getGroupNum() == property.getGroupNum()){
+                        properties.add(board.getProperties().get(i));
+                    }
+                }
+            }
+            for(int j = 0; j < properties.size(); j++){
+                if(properties.get(j).getNumHouses() < property.getNumHouses()){
+                    return false;
+                }
+            }
+            return true;
+        }else{
+            return false;
         }
     }
 
