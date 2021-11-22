@@ -89,7 +89,7 @@ public class RollActionEvent implements ActionListener {
 
         game.add_message("Player: " + player.getName() + " Rolled " + game.final_dice_point);
 
-        player.go(26);
+        player.go(game.final_dice_point);
 
         game.apply_colors();
 
