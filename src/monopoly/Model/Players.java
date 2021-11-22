@@ -13,13 +13,15 @@ public class Players {
     private String name;
     private int money;
     private int position;
+    private boolean isAI;
 
 
 
-    public Players(String name, int money, int position){
+    public Players(String name, int money, int position, boolean isAI){
         this.name = name;
         this.money = money;
         this.position = position;
+        this.isAI = isAI;
 
     }
 
@@ -48,6 +50,9 @@ public class Players {
         return this.money;
     }
 
+    public boolean checkAI(){
+        return this.isAI;
+    }
 
     public int getPosition(){
         return this.position;
