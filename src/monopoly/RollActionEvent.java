@@ -136,6 +136,19 @@ public class RollActionEvent implements ActionListener {
         return new DiceResult(dice_point,dice_point1);
     }
 
+    private void goToJail(){
+        Players player = game.current_players_object;
+        game.add_message("Oh no! Player: " + player.getName() + " is going to jail.");
+        player.setPosition(8);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        game.apply_colors();
+        player.goToJail();
+    }
+
     private void playerTurn(){
         Players player = game.current_players_object;
         DiceResult roll = this.RollDice();
