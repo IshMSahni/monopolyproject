@@ -21,15 +21,9 @@ public class Property {
     private int numHotels;
     private int groupNum;
 
-    public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial, String owner, boolean isSpecialBuyable){
-        this.name = name;
-        this.cost = cost;
-        this.isOwned = isOwned;
-        this.position = position;
-        this.isSpecial = isSpecial;
-        this.owner = owner;
-        this.isSpecialBuyable = isSpecialBuyable;
-    }
+    private double housePrice = cost * 1.2;
+    private double hotelPrice = cost * 1.2;
+
 
     public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial, String owner, boolean isSpecialBuyable, int groupNum){
         this.name = name;
@@ -48,6 +42,14 @@ public class Property {
 
     public int getCost(){
         return this.cost;
+    }
+
+    public int getHousePrice(){
+        return (int)this.housePrice;
+    }
+
+    public int getHotelPrice(){
+        return (int)this.hotelPrice;
     }
 
     public boolean isOwned(){
@@ -100,8 +102,7 @@ public class Property {
     }
 
     public int getRent(int cost){
-        // return (int)((0.1 * property.getCost()) + (0.05 * property.getNumHouses()) + (0.1 * property.getNumHotels()));
-        return (int)(0.1 * cost);
+        return (int)((0.1 * this.cost) + (0.05 * this.numHouses * housePrice) + (0.1 * this.numHotels * hotelPrice));
     }
 
     public int getRailRoadRent(int cost, Board board, String owner){
