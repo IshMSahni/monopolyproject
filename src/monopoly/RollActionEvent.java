@@ -34,10 +34,10 @@ public class RollActionEvent implements ActionListener {
 
         public void rollDice(){
             System.err.println("Roll!");
-//            this.dice_point1 = new Random().nextInt(6) + 1;
-//            this.dice_point = new Random().nextInt(6) + 1;
-           this.dice_point1 = 5;
-            this.dice_point = 5;
+            this.dice_point1 = new Random().nextInt(6) + 1;
+            this.dice_point = new Random().nextInt(6) + 1;
+//           this.dice_point1 = 5;
+//            this.dice_point = 5;
 
             this.free_parking_money = 0;
             game.btn_roll.setEnabled(false);
