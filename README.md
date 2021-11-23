@@ -3,8 +3,14 @@
 ## User Manual:
 
 Navigate to the 'MonopolyGUI' class. Then from the IntelliJ toolbar select 
-Run -> Run 'MonopolyGUI'.
-Upon filling ou the prompts for number of players, and players names; you will be able to play the game. 
+Run -> Run 'MonopolyGUI'. If you face errors simply opening the project try the following,
+To load the game:
+1) Extract jar contents to a folder of your choice.
+2) In IntelliJ, File -> New -> Project From Existing Sources
+3) Choose the folder you had extracted the Jar contents into -> OK
+4) Next -> Next -> Yes -> Next -> Next -> Next -> Next -> Finish
+
+Upon filling out the prompts for number of players, and players names; you will be able to play the game. 
 
 ## Roadmap:
 
