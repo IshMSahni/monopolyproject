@@ -34,10 +34,10 @@ public class RollActionEvent implements ActionListener {
 
         public void rollDice(){
             System.err.println("Roll!");
-            this.dice_point1 = new Random().nextInt(6) + 1;
-            this.dice_point = new Random().nextInt(6) + 1;
-//           this.dice_point1 = 5;
-//            this.dice_point = 5;
+//            this.dice_point1 = new Random().nextInt(6) + 1;
+//            this.dice_point = new Random().nextInt(6) + 1;
+           this.dice_point1 = 5;
+            this.dice_point = 5;
 
             this.free_parking_money = 0;
             game.btn_roll.setEnabled(false);
@@ -261,8 +261,12 @@ public class RollActionEvent implements ActionListener {
                 }
             }
             else{
-//                game.change_player(game.current_players_object);
-//                game.btn_roll.setEnabled(true);
+                Integer user_select = JOptionPane.showConfirmDialog(game.self,"Player: " + player.getName() + "rolled a double!\n Would you like to roll again?");
+                if(user_select == JOptionPane.YES_OPTION){
+                    rollDice();
+                }
+                else{}
+
             }
         }
 
