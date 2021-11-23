@@ -34,10 +34,10 @@ public class RollActionEvent implements ActionListener {
 
         public void rollDice(){
             System.err.println("Roll!");
-            this.dice_point1 = new Random().nextInt(6) + 1;
-            this.dice_point = new Random().nextInt(6) + 1;
-//           this.dice_point1 = 3;
-//            this.dice_point = 3;
+//            this.dice_point1 = new Random().nextInt(6) + 1;
+//            this.dice_point = new Random().nextInt(6) + 1;
+           this.dice_point1 = 5;
+            this.dice_point = 5;
 
             this.free_parking_money = 0;
             game.btn_roll.setEnabled(false);
@@ -86,7 +86,7 @@ public class RollActionEvent implements ActionListener {
 
     private void goToJail(){
         Players player = game.current_players_object;
-        doublesIncrement = 0;
+        doublesIncrement = 1;
         game.add_message("Oh no! Player: " + player.getName() + " is going to jail.");
         player.setPosition(8);
         try {
@@ -108,7 +108,6 @@ public class RollActionEvent implements ActionListener {
 
         player.go(game.final_dice_point);
 
-        player.go(game.final_dice_point);
 
         game.apply_colors();
 
@@ -250,19 +249,29 @@ public class RollActionEvent implements ActionListener {
 
             }
         }
+        if(roll.first == roll.second && doublesIncrement < 2){
+            doublesIncrement++;
+            game.add_message("Player: " + player.getName() + "rolled a double!");
+            if(game.current_players_object.checkAI()) {
+                try {
+                    Thread.sleep(500);
+                    rollDice();
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            else{
+//                game.change_player(game.current_players_object);
+//                game.btn_roll.setEnabled(true);
+            }
+        }
 
+        else if(doublesIncrement == 2){
+            game.add_message("Oh no! Player: " + player.getName() + "rolled a double 3 times in a row! They are now in jail!");
+            goToJail();
 
-//        if(roll.first == roll.second && doublesIncrement < 3 && game.current_players_object.checkAI()){
-//            game.add_message("Player: " + player.getName() + "rolled a double!");
-//            doublesIncrement++;
-//            playerTurn();
-//        }
-//
-//        else if(doublesIncrement == 3){
-//            game.add_message("Oh no! Player: " + player.getName() + "rolled a double 3 times in a row! They are now in jail!");
-//            goToJail();
-//
-//        }
+        }
+
 
     }
 
