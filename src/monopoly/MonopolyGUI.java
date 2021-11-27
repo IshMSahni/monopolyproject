@@ -30,8 +30,11 @@ public class MonopolyGUI extends GameBoardDesign {
     DefaultListModel<String> message_model = new DefaultListModel<>();
     DefaultListModel<String> player_model = new DefaultListModel<>();
 
-    Integer player_number = -1;
+    private int player_number;
+    private int AI_number;
+
     MonopolyGUI self;
+    AIPlayingEvent ai;
 
     /**
      * Create the frame.
@@ -45,6 +48,9 @@ public class MonopolyGUI extends GameBoardDesign {
 
         board = new Board();
         self = this;
+        player_number = -1;
+        AI_number = -1;
+
 
     }
 
@@ -66,18 +72,55 @@ public class MonopolyGUI extends GameBoardDesign {
 
     /**
      * This method is called when game start
+     * @return User input
+     */
+    private Integer ask_for_AI_number(){
+        while(AI_number < 0 || AI_number > Config.MAX_PLAYERS){
+            if(AI_number != -1){
+                DialogProvider.getInstance()
+                        .show_message_dialog(self, "Please enter a number between 0 and " + (Config.MAX_PLAYERS));
+            }
+            try{
+                String input = DialogProvider.getInstance()
+                        .show_input_dialog(self, "How many AI players will be playing Monopoly? (0-" + (Config.MAX_PLAYERS) + ")");
+                if(input == null){
+                    return null;
+                }
+                else{
+                    AI_number = Integer.parseInt(input);
+                }
+            }
+            catch(NumberFormatException e){
+                DialogProvider.getInstance()
+                        .show_message_dialog(self, "Please enter a number between 0 and " + (Config.MAX_PLAYERS));
+            }
+        }
+        return AI_number;
+    }
+
+    /**
+     * This method is called when game start
      * @return Uset input
      */
     private Integer ask_for_player_number(){
-        int player_number = -1;
-        while(player_number < 2 || player_number > Config.MAX_PLAYERS){
+       int min = 0;
+
+        if(AI_number == 0) {
+            min = 2;
+        }
+
+        if(AI_number == 1){
+            min = 1;
+        }
+
+        while(player_number < min || player_number > (Config.MAX_PLAYERS - AI_number)){
             if(player_number != -1){
                 DialogProvider.getInstance()
-                        .show_message_dialog(self, "Please enter a number between 2 and " + Config.MAX_PLAYERS);
+                        .show_message_dialog(self, "Please enter a number between " + min + " and " + (Config.MAX_PLAYERS - AI_number));
             }
             try{
                 String user_input = DialogProvider.getInstance()
-                        .show_input_dialog(self, "How many players will be playing Monopoly? (2-4)");
+                        .show_input_dialog(self, "How many human players will be playing Monopoly? (" + min + "-" + (Config.MAX_PLAYERS - AI_number) + ")");
                 if(user_input == null){
                     return null;
                 }
@@ -87,7 +130,7 @@ public class MonopolyGUI extends GameBoardDesign {
             }
             catch(NumberFormatException e){
                 DialogProvider.getInstance()
-                                .show_message_dialog(self, "Please enter a number between 2 and " + Config.MAX_PLAYERS);
+                                .show_message_dialog(self, "Please enter a number between " + min + " and " + (Config.MAX_PLAYERS - AI_number));
             }
         }
         return player_number;
@@ -143,7 +186,7 @@ public class MonopolyGUI extends GameBoardDesign {
      */
     public void ut_setup_player_info(){
         for(int i = 0; i < 4; i++){
-            Players players = new Players("Player_" + i, 0, 0);
+            Players players = new Players("Player_" + i, 0, 0, false);
             this.players.add(players);
         }
     }
@@ -229,6 +272,9 @@ public class MonopolyGUI extends GameBoardDesign {
     public void change_player(Players players){
         current_players_object = players;
         add_message("It is now " + current_players_object.getName() + "'s turn.");
+        ai = new AIPlayingEvent(self, current_players_object);
+        ai.aiTurn();
+
     }
 
     /**
@@ -290,11 +336,18 @@ public class MonopolyGUI extends GameBoardDesign {
      * Setup game
      */
     private void setup(){
-        player_number = ask_for_player_number();
-        for (int i = 0; i < player_number; i++) {
-            players.add(new Players(ask_for_player_name(i), Config.PLAYER_INITIAL_MONEY, 0));
+        AI_number = ask_for_AI_number();
+        for (int i = 0; i < AI_number; i++) {
+            players.add(new Players("AI Number " + (i + 1), Config.PLAYER_INITIAL_MONEY, 0, true));
             add_message("Added player: " + players.get(players.size() - 1).getName());
         }
+
+        player_number = ask_for_player_number();
+        for (int i = 0; i < player_number; i++) {
+            players.add(new Players(ask_for_player_name(i), Config.PLAYER_INITIAL_MONEY, 0, false));
+            add_message("Added player: " + players.get(players.size() - 1).getName());
+        }
+
         update_player_info();
         message_list.setModel(message_model);
         player_list.setModel(player_model);

@@ -71,7 +71,7 @@ public class Game  {
         for(int i = 0; i < numberPlayers; i++){
             System.out.print ("Player " + (i + 1) + ": " );
             String name = c.nextLine();
-            Players players = new Players(name, 500, 1);
+            Players players = new Players(name, 500, 1, false);
             addPlayer(players);
 
         }

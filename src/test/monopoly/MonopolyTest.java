@@ -129,7 +129,7 @@ class MonopolyTest {
             fail();
         }
 
-        Players players = new Players("Player_0", 0, 0);
+        Players players = new Players("Player_0", 0, 0, false);
 
         try{
             DefaultListModel<String> message_model =  game.ut_get_message_model();

@@ -19,8 +19,12 @@ public class Property {
     private boolean isSpecialBuyable;
     private int numHouses;
     private int numHotels;
+    private int groupNum;
 
-    public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial, String owner, boolean isSpecialBuyable){
+    private int housePrice;
+
+
+    public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial, String owner, boolean isSpecialBuyable, int groupNum, int housePrice){
         this.name = name;
         this.cost = cost;
         this.isOwned = isOwned;
@@ -28,6 +32,8 @@ public class Property {
         this.isSpecial = isSpecial;
         this.owner = owner;
         this.isSpecialBuyable = isSpecialBuyable;
+        this.groupNum = groupNum;
+        this.housePrice = housePrice;
     }
 
     public String getName(){
@@ -36,6 +42,10 @@ public class Property {
 
     public int getCost(){
         return this.cost;
+    }
+
+    public int getHousePrice(){
+        return this.housePrice;
     }
 
     public boolean isOwned(){
@@ -67,7 +77,7 @@ public class Property {
         return  this.owner;
     }
 
-  /*  private void addHouse(int num){
+    public void addHouse(int num){
         this.numHouses += num;
     }
 
@@ -75,17 +85,24 @@ public class Property {
         return numHouses;
     }
 
-    private void addHotel(int n){
+    public void addHotel(int n){
         this.numHotels += n;
+    }
+
+    public void clearNumHouse(){
+        this.numHouses = 0;
     }
 
     public int getNumHotels(){
         return numHotels;
-    }*/
+    }
+
+    public int getGroupNum(){
+        return groupNum;
+    }
 
     public int getRent(int cost){
-        // return (int)((0.1 * property.getCost()) + (0.05 * property.getNumHouses()) + (0.1 * property.getNumHotels()));
-        return (int)(0.1 * cost);
+        return (int)((0.1 * this.cost) + (0.05 * this.numHouses * housePrice) + (0.1 * this.numHotels * housePrice));
     }
 
     public int getRailRoadRent(int cost, Board board, String owner){

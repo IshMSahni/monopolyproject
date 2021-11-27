@@ -1,5 +1,6 @@
 package monopoly;
 
+import monopoly.Model.Board;
 import monopoly.Model.Players;
 import monopoly.Model.Property;
 
@@ -15,24 +16,36 @@ public class RollActionEvent implements ActionListener {
     private int dice_point1;
     private int dice_point;
     private int free_parking_money;
+    private int doublesIncrement;
+
 
     public RollActionEvent(MonopolyGUI game){
         this.game = game;
+        this.doublesIncrement = 0;
+
     }
 
         @Override
         public void actionPerformed(ActionEvent e) {
+           rollDice();
+
+
+        }
+
+        public void rollDice(){
             System.err.println("Roll!");
-            this.dice_point1 = new Random().nextInt(6) + 1;
-            this.dice_point = new Random().nextInt(6) + 1;
+           this.dice_point1 = new Random().nextInt(6) + 1;
+           this.dice_point = new Random().nextInt(6) + 1;
+
+
             this.free_parking_money = 0;
             game.btn_roll.setEnabled(false);
             Players player = game.current_players_object;
             new Thread(() -> {
-                    jailEvaluation(player);
-                    game.update_propertyp();
-                    game.update_player_info();
-
+                jailEvaluation(player);
+                game.update_propertyp();
+                game.update_player_info();
+                game.btn_roll.setEnabled(false);
             }).start();
 
 
@@ -52,6 +65,7 @@ public class RollActionEvent implements ActionListener {
         while (i < 15) {
             game.panel_dice.set_prop(new Random().nextInt(6) + 1);
             game.panel_dice2.set_prop(new Random().nextInt(6) + 1);
+
             game.panel_dice.repaint();
             game.panel_dice2.repaint();
             try {
@@ -71,6 +85,7 @@ public class RollActionEvent implements ActionListener {
 
     private void goToJail(){
         Players player = game.current_players_object;
+        doublesIncrement = 1;
         game.add_message("Oh no! Player: " + player.getName() + " is going to jail.");
         player.setPosition(8);
         try {
@@ -82,14 +97,16 @@ public class RollActionEvent implements ActionListener {
         player.goToJail();
     }
 
-    private void playerTurn(){
+    public void playerTurn(){
         Players player = game.current_players_object;
         DiceResult roll = this.RollDice();
+
         game.final_dice_point = roll.first + roll.second;
 
         game.add_message("Player: " + player.getName() + " Rolled " + game.final_dice_point);
 
-        player.go(26);
+        player.go(game.final_dice_point);
+
 
         game.apply_colors();
 
@@ -97,7 +114,7 @@ public class RollActionEvent implements ActionListener {
 
         Property current_board = game.board.getProperties().get(new_position);
 
-        if ((!current_board.isOwned() && !current_board.isSpecial()) || (!current_board.isOwned() && current_board.isSpecialBuyable())) {
+        if ((!current_board.isOwned() && !current_board.isSpecial() && !game.current_players_object.checkAI()) || (!current_board.isOwned() && current_board.isSpecialBuyable() && !game.current_players_object.checkAI())) {
             if (current_board.isSpecialBuyable()) {
                 game.add_message(
                         "" +
@@ -113,7 +130,21 @@ public class RollActionEvent implements ActionListener {
                     JOptionPane.showMessageDialog(game.self, "Not enough money!");
                 }
             }
-        } else if (current_board.isSpecial()) {
+        }
+        else if((!current_board.isOwned() && !current_board.isSpecial() && game.current_players_object.checkAI()) || (!current_board.isOwned() && current_board.isSpecialBuyable()) && game.current_players_object.checkAI()){
+            game.btn_roll.setEnabled(false);
+            if (game.current_players_object.getMoney() >= current_board.getCost()) {
+                game.current_players_object.setMoney(game.current_players_object.getMoney() - current_board.getCost());
+                current_board.setOwner(game.current_players_object.getName());
+            }
+        }
+
+        else if(current_board.isOwned()){
+            PayRent(game.current_players_object, current_board.getRent(current_board.getCost()), current_board);
+        }
+
+
+        else if (current_board.isSpecial()) {
             game.add_message(
                     "" +
                             player.getName() +
@@ -167,11 +198,84 @@ public class RollActionEvent implements ActionListener {
 
         } else {
             if (current_board.getOwner().equals(player.getName())) {
+                if(current_board.getNumHotels() == 1){
+                }else{
+                    if(current_board.getNumHouses() == 0){
+                        if(checkSameOwner(game.board, current_board)){
+                            Integer user_select = JOptionPane.showConfirmDialog(game.self, "You can build houses on this property for $" + current_board.getHousePrice() + ". \n Would you like to build on " + game.board.propertyholder.get(current_board.getPosition()).getName() + "?", "Build Houses", JOptionPane.YES_NO_OPTION);
+                            if(user_select == JOptionPane.YES_OPTION){
+                                if(player.getMoney() > current_board.getHousePrice()){
+                                    player.setMoney(player.getMoney() - current_board.getHousePrice());
+                                    current_board.addHouse(1);
+                                    JOptionPane.showMessageDialog(game.self, "You have built a house on this property!");
+                                }else{
+                                    JOptionPane.showMessageDialog(game.self, "Not enough money!");
+                                }
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(game.self, "You need to buy all properties in the same color to build house on them!");
+                        }
+                    }else{
+                        if(checkMultipleHouses(game.board, current_board)){
+                            Integer user_select = JOptionPane.showConfirmDialog(game.self, "You can build houses on this property for $" + current_board.getHousePrice() + ". \n Would you like to build on " + game.board.propertyholder.get(current_board.getPosition()).getName() + "?", "Build Houses", JOptionPane.YES_NO_OPTION);
+                            if(user_select == JOptionPane.YES_OPTION){
+                                if(current_board.getNumHouses() != 4){
+                                    if(player.getMoney() > current_board.getHousePrice()){
+                                        player.setMoney(player.getMoney() - current_board.getHousePrice());
+                                        current_board.addHouse(1);
+                                        JOptionPane.showMessageDialog(game.self, "You have built a house on this property!");
+                                    }else{
+                                        JOptionPane.showMessageDialog(game.self, "Not enough money!");
+                                    }
+                                }else if(current_board.getNumHouses() == 4) {
+                                    if (player.getMoney() > current_board.getHousePrice()) {
+                                        player.setMoney(player.getMoney() - current_board.getHousePrice());
+                                        current_board.clearNumHouse();
+                                        current_board.addHotel(1);
+                                        JOptionPane.showMessageDialog(game.self, "You have built a hotel on this property!");
+                                    }else{
+                                        JOptionPane.showMessageDialog(game.self, "Not enough money!");
+                                    }
+                                }
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(game.self, "You need to have " + current_board.getNumHouses() + " houses on each property of the same color to build more house!");
+                        }
+                    }
+                }
             } else {
                 Integer rent = current_board.getRent(current_board.getCost());
 
             }
         }
+        if(roll.first == roll.second && doublesIncrement < 2){
+            doublesIncrement++;
+            game.add_message("Player: " + player.getName() + "rolled a double!");
+            if(game.current_players_object.checkAI()) {
+                try {
+                    Thread.sleep(500);
+                    rollDice();
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            else{
+                Integer user_select = JOptionPane.showConfirmDialog(game.self,"Player: " + player.getName() + " rolled a double!\n Would you like to roll again?");
+                if(user_select == JOptionPane.YES_OPTION){
+                    rollDice();
+                }
+                else{}
+
+            }
+        }
+
+        else if(doublesIncrement == 2){
+            game.add_message("Oh no! Player: " + player.getName() + "rolled a double 3 times in a row! They are now in jail!");
+            goToJail();
+
+        }
+
+
     }
 
     private void BankruptcyDeclare(Players player){
@@ -193,7 +297,8 @@ public class RollActionEvent implements ActionListener {
 
     }
 
-    private void jailEvaluation(Players player){
+    public void jailEvaluation(Players player){
+
         if (player.getInJail()){
             player.incrementTurnsInJail();
             game.add_message(
@@ -201,7 +306,18 @@ public class RollActionEvent implements ActionListener {
                             player.getName() +
                             " is currently in jail. This is turn " + player.getTurnsInJail() + " in jail." );
             if(player.getTurnsInJail() <= 4) {
+
                 if (player.getMoney() >= 50){
+
+                    if(game.current_players_object.checkAI()){
+                        player.setMoney(player.getMoney() - 50);
+                        game.add_message("Player: " +
+                                player.getName() +
+                                " paid $50 to get out of jail.");
+                        player.getOutofJail();
+                        playerTurn();
+                    }
+                    else{
                     String[] buttons = {"Roll for Doubles", "Pay $50"};
                     int returnValue = JOptionPane.showOptionDialog(game.self, "You can either roll for doubles or get out of jail by paying $50.", "Jail options",
                             JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[1]);
@@ -220,21 +336,28 @@ public class RollActionEvent implements ActionListener {
                         player.getOutofJail();
                         playerTurn();
                     }
-                } else{
-
-                    String[] buttons = {"Roll for Doubles"};
-                    int returnValue = JOptionPane.showOptionDialog(game.self, "You can only roll for doubles.", "Jail options",
-                            JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[0]);
-                    if (returnValue == 0){
+                }} else {
+                    if (game.current_players_object.checkAI()) {
                         DiceResult roll = this.RollDice();
-                        if (roll.first == roll.second){
+                        if (roll.first == roll.second) {
                             player.setTurnsInJail();
                             player.getOutofJail();
                             playerTurn();
                         }
+                    } else {
+                        String[] buttons = {"Roll for Doubles"};
+                        int returnValue = JOptionPane.showOptionDialog(game.self, "You can only roll for doubles.", "Jail options",
+                                JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[0]);
+                        if (returnValue == 0) {
+                            DiceResult roll = this.RollDice();
+                            if (roll.first == roll.second) {
+                                player.setTurnsInJail();
+                                player.getOutofJail();
+                                playerTurn();
+                            }
+                        }
                     }
-                }
-            }
+                }}
             else {
                 player.setTurnsInJail();
                 game.add_message(
@@ -258,6 +381,51 @@ public class RollActionEvent implements ActionListener {
         }
         else {
             playerTurn();
+        }
+    }
+
+    private boolean checkSameOwner(Board board, Property property){
+        ArrayList<Property> properties = new ArrayList<Property>();
+        if(!property.isSpecial()){
+            for(int i = property.getPosition() - 3; i < property.getPosition() + 3; i++){
+                if(!board.getProperties().get(i).isSpecial()){
+                    if(board.getProperties().get(i).getGroupNum() == property.getGroupNum()){
+                        properties.add(board.getProperties().get(i));
+                    }
+                }
+            }
+            for(int j = 0; j < properties.size(); j++){
+                if(properties.get(j).getOwner() != property.getOwner()){
+                    return false;
+                }
+            }
+            return true;
+        }else return false;
+    }
+
+    private boolean checkMultipleHouses(Board board, Property property){
+        ArrayList<Property> properties = new ArrayList<Property>();
+        if(!property.isSpecial()){
+            if(property.getNumHouses() == 0){
+                return false;
+            }else{
+                properties.add(property);
+            }
+            for(int i = property.getPosition() - 3; i < property.getPosition() + 3; i++){
+                if(!board.getProperties().get(i).isSpecial()){
+                    if(board.getProperties().get(i).getGroupNum() == property.getGroupNum()){
+                        properties.add(board.getProperties().get(i));
+                    }
+                }
+            }
+            for(int j = 0; j < properties.size(); j++){
+                if(properties.get(j).getNumHouses() < property.getNumHouses()){
+                    return false;
+                }
+            }
+            return true;
+        }else{
+            return false;
         }
     }
 

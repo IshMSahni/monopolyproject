@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="monopolyproject:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/monopolyproject_jar</output-path>
-    <root id="archive" name="monopolyproject.jar">
-      <element id="module-output" name="monopolyproject" />
-      <element id="dir-copy" path="$PROJECT_DIR$" />
-    </root>
-  </artifact>
-</component>
