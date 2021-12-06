@@ -1,4 +1,4 @@
-package monopoly;
+package monopoly.deprecated;
 
 /**
  * @author Gang Han

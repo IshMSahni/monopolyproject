@@ -2,24 +2,24 @@ package monopoly.Model;
 
 import monopoly.Config;
 
+import java.io.Serializable;
+
 /**
  * @author Aayush Mallya
  * Sets up the Player Object
  */
-public class Players {
+public class Player implements Serializable {
 
-
-
-    private String name;
+    private final String name;
     private int money;
     private int position;
-    private boolean isAI;
+    private final boolean isAI;
 
 
     private boolean inJail;
     private int turnsInJail;
 
-    public Players(String name, int money, int position, boolean isAI){
+    public Player(String name, int money, int position, boolean isAI){
         this.name = name;
         this.money = money;
         this.position = position;

@@ -97,7 +97,8 @@ public class GameBoardDesign extends JFrame {
     public JLabel current_player;
     public JList message_list;
 
-
+    public JButton btn_load;
+    public JButton btn_save;
 
 
     /**
@@ -286,7 +287,7 @@ public class GameBoardDesign extends JFrame {
         JLabel go = new JLabel("Passed Go");
         go.setFont(new Font("Verdana", Font.BOLD, 8));
         board_1.add(go);
-        JLabel go2 = new JLabel("Get $200");
+        JLabel go2 = new JLabel("Get " + Config.configurable_dollar_sign + "200");
         go2.setFont(new Font("Verdana", Font.BOLD, 8));
         board_1.add(go2);
         board_1.setBackground(Color.WHITE);
@@ -389,7 +390,7 @@ public class GameBoardDesign extends JFrame {
         JLabel tax = new JLabel("Tax");
         tax.setFont(new Font("Verdana", Font.BOLD, 8));
         board_4.add(tax);
-        JLabel tax2 = new JLabel("Pay $200");
+        JLabel tax2 = new JLabel("Pay " + Config.configurable_dollar_sign + "200");
         tax2.setFont(new Font("Verdana", Font.BOLD, 8));
         board_4.add(tax2);
         contentPane.add(board_4);
@@ -472,7 +473,7 @@ public class GameBoardDesign extends JFrame {
         JLabel luxtax = new JLabel("Luxury Tax");
         luxtax.setFont(new Font("Verdana", Font.BOLD, 7));
         board_33.add(luxtax);
-        JLabel luxtax2 = new JLabel("Pay $75");
+        JLabel luxtax2 = new JLabel("Pay " + Config.configurable_dollar_sign +  "75");
         luxtax2.setFont(new Font("Verdana", Font.BOLD, 8));
         board_33.add(luxtax2);
         contentPane.add(board_33);
@@ -525,6 +526,14 @@ public class GameBoardDesign extends JFrame {
         btn_roll = new JButton("Roll");
         btn_roll.setBounds(620, 39, 100, 23);
         contentPane.add(btn_roll);
+
+        btn_load = new JButton("Load");
+        btn_load.setBounds(730, 39, 100, 23);
+        contentPane.add(btn_load);
+
+        btn_save = new JButton("Save");
+        btn_save.setBounds(730, 72, 100, 23);
+        contentPane.add(btn_save);
 
         btn_end_round = new JButton("End Round");
         btn_end_round.setBounds(620, 72, 100, 23);

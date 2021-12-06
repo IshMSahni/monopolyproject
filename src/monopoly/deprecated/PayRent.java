@@ -1,7 +1,8 @@
-package monopoly;
+package monopoly.deprecated;
 
+import monopoly.Config;
 import monopoly.Model.Board;
-import monopoly.Model.Players;
+import monopoly.Model.Player;
 import monopoly.Model.Property;
 
 import java.util.List;
@@ -11,23 +12,23 @@ import java.util.List;
 */
 public class PayRent {
 
-    private Players tenant;
-    private Players landLord;
-    private List<Players> players;
-    private Property property;
-    private Board board;
-    private Integer j;
+    private final Player tenant;
+    private Player landLord;
+    private final List<Player> players;
+    private final Property property;
+    private final Board board;
+    private final Integer j;
 
 
     /**
-     * Constructor for monopoly.PayRent, also has function to check if the property is owned
+     * Constructor for monopoly.deprecated.PayRent, also has function to check if the property is owned
      *
      * @param tenant
      * @param players
      * @param board
      * @param j
      */
-    public PayRent(Players tenant, List<Players> players,Board board, Integer j){
+    public PayRent(Player tenant, List<Player> players, Board board, Integer j){
         this.tenant = tenant;
         this.board = board;
         this.players = players;
@@ -35,7 +36,7 @@ public class PayRent {
         this.j = j;
 
         System.out.println("This property is owned by" + property.getOwner());
-        System.out.println(players.get(j).getName()+" just paid $" + property.getRent(
+        System.out.println(players.get(j).getName()+" just paid "+ Config.configurable_dollar_sign + property.getRent(
                 property.getCost()) + " to " + property.getOwner());
             //If the property is owned
             //Loop through player list to find the owner

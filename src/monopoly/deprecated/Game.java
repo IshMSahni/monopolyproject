@@ -1,4 +1,6 @@
-package monopoly.Model;
+package monopoly.deprecated;
+
+import monopoly.Model.*;
 
 import java.util.*;
 import java.util.Scanner;
@@ -7,9 +9,9 @@ import java.util.Scanner;
  * @author Aayush Mallya
  */
 public class Game  {
-    private List <Players> players;
-    private Board board;
-    private Players p1;
+    private final List <Player> players;
+    private final Board board;
+    private Player p1;
     private BuyCommand command;
     private PrintCommand printCommand;
     private int numberPlayers;
@@ -29,11 +31,11 @@ public class Game  {
      * Adds a player object to the list of players
      * @param players
      */
-    public void addPlayer(Players players){
+    public void addPlayer(Player players){
         this.players.add(players);
     }
 
-    public Players removePlayer(int index){
+    public Player removePlayer(int index){
 
         if(index >= 0 && index < players.size()){
             return players.remove(index);
@@ -71,7 +73,7 @@ public class Game  {
         for(int i = 0; i < numberPlayers; i++){
             System.out.print ("Player " + (i + 1) + ": " );
             String name = c.nextLine();
-            Players players = new Players(name, 500, 1, false);
+            Player players = new Player(name, 500, 1, false);
             addPlayer(players);
 
         }
@@ -83,7 +85,7 @@ public class Game  {
 
 
     /**
-     * Depending on the monopoly.Model.Game State it will dispatch actions
+     * Depending on the monopoly.deprecated.Game State it will dispatch actions
      * @param state
      */
     private void actionDispatch(GameState state){
@@ -112,8 +114,6 @@ public class Game  {
                 actionDispatch(state);
                 players.get(0).setPosition(players.get(0).getPosition()+1);
             }
-
-
             else if (com == 2) {
                 for (int i = 0; i < players.size(); i++)
                     printCommand = new PrintCommand(players.get(i), board);

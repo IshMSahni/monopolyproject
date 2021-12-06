@@ -1,15 +1,18 @@
-package monopoly.Model;
+package monopoly.deprecated;
+
+import monopoly.Model.Player;
+import monopoly.Model.Property;
 
 /**
  * @author Aayush Mallya
  * Code for the Buy Command
  */
 public class BuyCommand {
-    private Players players;
+    private final Player players;
     private Property property;
-    private monopoly.Model.Board board;
+    private final monopoly.Model.Board board;
 
-    public BuyCommand(Players players, int position, String name, monopoly.Model.Board board){
+    public BuyCommand(Player players, int position, String name, monopoly.Model.Board board){
         this.players = players;
         this.board = board;
 

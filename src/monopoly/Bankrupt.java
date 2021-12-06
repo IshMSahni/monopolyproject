@@ -1,7 +1,7 @@
 package monopoly;
 
 import monopoly.Model.Board;
-import monopoly.Model.Players;
+import monopoly.Model.Player;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class Bankrupt {
      * @param i
      * @param board
      */
-    public void DeclareBankruptcy(List<Players> players, Integer i, Board board) {
+    public void DeclareBankruptcy(List<Player> players, Integer i, Board board) {
 
         System.out.println("Oh no" + players.get(i).getName() + "went bankrupt \n" +
                 "All of their properties are now available for purchase when landed on!");
@@ -24,7 +24,7 @@ public class Bankrupt {
             }
         }
     }
-    public void DeclareSpecificBankruptcy(Players Player, Board board) {
+    public void DeclareSpecificBankruptcy(Player Player, Board board) {
 
         System.out.println("Oh no" + Player.getName() + "went bankrupt \n" +
                 "All of their properties are now available for purchase when landed on!");

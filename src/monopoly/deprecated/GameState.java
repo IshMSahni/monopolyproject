@@ -1,4 +1,4 @@
-package monopoly.Model;
+package monopoly.deprecated;
 
 public enum GameState {
     SET_UP,
