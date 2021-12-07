@@ -1,15 +1,38 @@
 package monopoly.Model;
 
+import org.json.JSONArray;
+
+import java.io.Serializable;
 import java.util.*;
 
-public class Board {
+public class Board implements Serializable {
     //propertyholder is a map of the whole board
     public HashMap<Integer, Property> propertyholder;
 
     //private final Integer[] boardspaces = new Integer[25];
     //might want to use an array later instead of using integers directly in the map
-    public Board (){
 
+    public Board() {
+        JSONArray config = BoardConfig.getInstance().get_config();
+        propertyholder = new HashMap<>();
+
+        for(int i = 0; i < config.length(); i++){
+            Property property = new Property(
+                    config.getJSONObject(i).getString("name"),
+                    config.getJSONObject(i).getInt("cost"),
+                    config.getJSONObject(i).getBoolean("isOwned"),
+                    config.getJSONObject(i).getInt("position"),
+                    config.getJSONObject(i).getBoolean("isSpecial"),
+                    config.getJSONObject(i).getString("owner"),
+                    config.getJSONObject(i).getBoolean("isSpecialBuyable"),
+                    config.getJSONObject(i).getInt("groupNum"),
+                    config.getJSONObject(i).getInt("housePrice")
+            );
+            propertyholder.put(config.getJSONObject(i).getInt("position"), property);
+        }
+    }
+
+    public Board (Boolean is_disabled){
         propertyholder = new HashMap<>();
         Property go = new Property("Go", 0, false, 0, true, "", false, 0, 0);
         propertyholder.put(0,go);

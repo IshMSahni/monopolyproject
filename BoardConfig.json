@@ -1,0 +1,341 @@
+[{
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Go",
+	"groupNum": 0,
+	"position": 0,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 60,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Mediterranean Avenue",
+	"groupNum": 1,
+	"position": 1,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 60,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Baltic Avenue",
+	"groupNum": 1,
+	"position": 2,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Income Tax",
+	"groupNum": 0,
+	"position": 3,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Reading Railroad",
+	"groupNum": 0,
+	"position": 4,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Oriental Avenue",
+	"groupNum": 2,
+	"position": 5,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Vermont Avenue",
+	"groupNum": 2,
+	"position": 6,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 120,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Conneticut Avenue",
+	"groupNum": 2,
+	"position": 7,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Jail",
+	"groupNum": 0,
+	"position": 8,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 140,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "St. Charles Place",
+	"groupNum": 3,
+	"position": 9,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 150,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Electric Company",
+	"groupNum": 0,
+	"position": 10,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 140,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "States Avenue",
+	"groupNum": 3,
+	"position": 11,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 160,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Virginia Avenue",
+	"groupNum": 3,
+	"position": 12,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Pennsylvania Railroad",
+	"groupNum": 0,
+	"position": 13,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 180,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "St. James Place",
+	"groupNum": 4,
+	"position": 14,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 180,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Tennessee Avenue",
+	"groupNum": 4,
+	"position": 15,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "New York Avenue",
+	"groupNum": 4,
+	"position": 16,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Free Parking",
+	"groupNum": 0,
+	"position": 17,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 220,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Kentucky Avenue",
+	"groupNum": 5,
+	"position": 18,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 220,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Indiana Avenue",
+	"groupNum": 5,
+	"position": 19,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 240,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Illinois Avenue",
+	"groupNum": 5,
+	"position": 20,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "B&O Railroad",
+	"groupNum": 0,
+	"position": 21,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 260,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Atlantic Avenue",
+	"groupNum": 6,
+	"position": 22,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 260,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Ventnor Avenue",
+	"groupNum": 6,
+	"position": 23,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 150,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Water Works",
+	"groupNum": 0,
+	"position": 24,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 280,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Marvin Gardins",
+	"groupNum": 6,
+	"position": 25,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Go To Jail",
+	"groupNum": 0,
+	"position": 26,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 300,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Pacific Avenue",
+	"groupNum": 7,
+	"position": 27,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 300,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "North Carolina Avenue",
+	"groupNum": 7,
+	"position": 28,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 320,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Pennsylvania Avenue",
+	"groupNum": 7,
+	"position": 29,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Short Line Railroad",
+	"groupNum": 0,
+	"position": 30,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 350,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Park Place",
+	"groupNum": 8,
+	"position": 31,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Luxury Tax",
+	"groupNum": 0,
+	"position": 32,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 400,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Boardwalk",
+	"groupNum": 8,
+	"position": 33,
+	"isSpecialBuyable": false
+}]

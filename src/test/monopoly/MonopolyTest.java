@@ -1,7 +1,8 @@
 package test.monopoly;
 
+import monopoly.Config;
 import monopoly.DialogProvider;
-import monopoly.Model.Players;
+import monopoly.Model.Player;
 import monopoly.MonopolyGUI;
 
 import org.junit.Assert;
@@ -10,7 +11,6 @@ import test.monopoly.util.Reflection;
 
 
 import javax.swing.*;
-import java.awt.*;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
@@ -23,9 +23,7 @@ class MonopolyTest {
     static void ask_for_player_number() {
         ArrayList<Integer> results = new ArrayList<>();
         ArrayList<Integer> expects = new ArrayList<>();
-        expects.add(2);
-        expects.add(3);
-        expects.add(4);
+
 
         MonopolyGUI game = new MonopolyGUI();
         for(int i = 2; i <= 4; i++) {
@@ -102,10 +100,10 @@ class MonopolyTest {
         Method method = Reflection.get_method(MonopolyGUI.class, "update_player_info");
 
         ArrayList<String> results = new ArrayList<>();
-        results.add("Player: Player_0    Money: 0$    Position: 0");
-        results.add("Player: Player_1    Money: 0$    Position: 0");
-        results.add("Player: Player_2    Money: 0$    Position: 0");
-        results.add("Player: Player_3    Money: 0$    Position: 0");
+        results.add("Player: Player_0    Money: 0" + Config.configurable_dollar_sign + "    Position: 0");
+        results.add("Player: Player_1    Money: 0" + Config.configurable_dollar_sign + "    Position: 0");
+        results.add("Player: Player_2    Money: 0" + Config.configurable_dollar_sign + "    Position: 0");
+        results.add("Player: Player_3    Money: 0" + Config.configurable_dollar_sign + "    Position: 0");
 
         try{
             method.invoke(game);
@@ -129,7 +127,7 @@ class MonopolyTest {
             fail();
         }
 
-        Players players = new Players("Player_0", 0, 0, false);
+        Player players = new Player("Player_0", 0, 0, false);
 
         try{
             DefaultListModel<String> message_model =  game.ut_get_message_model();
@@ -145,10 +143,12 @@ class MonopolyTest {
     }
 
     public static void main(String[] args) {
-        ask_for_player_number();
-        //ask_for_player_name(); This is made to be tested in a game that is already running.
-        add_message();
-        update_player_info();
-        change_player();
+        DialogProvider.debug_mode = true;
+        DialogProvider.result_input = "1";
+        // ask_for_player_number();
+        // ask_for_player_name(); // This is made to be tested in a game that is already running.
+        // add_message();
+        // update_player_info();
+        // change_player();
     }
 }

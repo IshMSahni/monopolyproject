@@ -2,6 +2,7 @@ package monopoly;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 /**
  * monopoly.DialogProvider provides easy debuging dialogs for the game.
@@ -12,6 +13,7 @@ public class DialogProvider {
     public static boolean debug_mode = false;
     public static int result_confirm = JOptionPane.NO_OPTION;
     public static String result_input = "";
+    public static String result_file = ".";
 
     /**
      * Singleton Mode
@@ -64,4 +66,22 @@ public class DialogProvider {
             return result_input;
         }
     }
+
+    public String show_file_dialog(Component parentComponent, String root){
+        if(!debug_mode){
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new File("."));
+            int option = fileChooser.showOpenDialog(parentComponent);
+            if(option == JFileChooser.APPROVE_OPTION){
+                File file = fileChooser.getSelectedFile();
+                return file.getAbsolutePath();
+            }else{
+                show_message_dialog(parentComponent,"No file selected");
+                return null;
+            }
+        }else{
+            return result_file;
+        }
+    }
+
 }

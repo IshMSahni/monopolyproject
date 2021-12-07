@@ -9,7 +9,10 @@ import java.awt.*;
 public class DicePanel extends JPanel {
 
 
-    private int x, y, width, height;
+    private final int x;
+    private final int y;
+    private final int width;
+    private final int height;
     private int value = 1;
 
     /**

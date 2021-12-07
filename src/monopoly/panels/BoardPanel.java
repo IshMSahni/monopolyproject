@@ -11,7 +11,7 @@ public class BoardPanel extends JPanel {
 
     ArrayList<Color> players_colors = new ArrayList<>();
 
-    Color colors[] = {
+    Color[] colors = {
             new Color(0xF44336), new Color(0xFFA726),
             new Color(0xFFFF00), new Color(0x00E676),
             new Color(0x03A9F4), new Color(0x512DA8)

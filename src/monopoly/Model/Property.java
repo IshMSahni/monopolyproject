@@ -1,27 +1,38 @@
 package monopoly.Model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * @author Aayush Mallya
  * Information pertaining to the player state
  */
-public class Property {
+public class Property implements Serializable {
 
     private Board board;
 
     private String owner;
-    private String name;
-    private int cost;
+    private final String name;
+    private final int cost;
     private boolean isOwned;
-    private boolean isSpecial;
-    private int position;
-    private boolean isSpecialBuyable;
+    private final boolean isSpecial;
+    private final int position;
+    private final boolean isSpecialBuyable;
     private int numHouses;
     private int numHotels;
-    private int groupNum;
+    private final int groupNum;
 
-    private int housePrice;
+    private final int housePrice;
+
+    // static ArrayList<Property> properties = new ArrayList<Property>();
+    //static String json_text = "";
+    //static JSONArray jsonArray = new JSONArray();
 
 
     public Property(String name, int cost, boolean isOwned, int position, boolean isSpecial, String owner, boolean isSpecialBuyable, int groupNum, int housePrice){
@@ -34,6 +45,34 @@ public class Property {
         this.isSpecialBuyable = isSpecialBuyable;
         this.groupNum = groupNum;
         this.housePrice = housePrice;
+
+        //properties.add(this);
+
+        if (false) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("name", name);
+            jsonObject.put("cost", cost);
+            jsonObject.put("isOwned", isOwned);
+            jsonObject.put("position", position);
+            jsonObject.put("isSpecial", isSpecial);
+            jsonObject.put("owner", owner);
+            jsonObject.put("isSpecialBuyable", isSpecialBuyable);
+            jsonObject.put("groupNum", groupNum);
+            jsonObject.put("housePrice", housePrice);
+            //jsonArray.put(jsonObject);
+        }
+
+        //json_text = jsonArray.toString();
+
+        // data = new String(Files.readAllBytes(Paths.get("BoardConfig.json")));
+
+        try{
+            //Files.write(Paths.get("BoardConfig.json"), json_text.getBytes());
+        }
+        catch (Exception e){
+            //e.printStackTrace(System.err);
+        }
+
     }
 
     public String getName(){
