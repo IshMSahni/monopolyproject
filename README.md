@@ -1,4 +1,4 @@
-# Milestone 3
+# Milestone 4 
 
 ## User Manual:
 
@@ -10,14 +10,15 @@ To load the game:
 3) Choose the folder you had extracted the Jar contents into -> OK
 4) Next -> Next -> Yes -> Next -> Next -> Next -> Next -> Finish
 
-Upon filling out the prompts for number of players, and players names; you will be able to play the game. 
+Upon launching the game you will bne prompted to load a board. You will then be prompted to choose a currency.
+
 
 ## Roadmap:
 
-In this Milestone we implemented additional features based on our version of the Monopoly game designed in milestone 2. This iteration has the following features:
-- An AI that will play the game autonomously
-- Added special property functionality, and updated the board 
-- Added ability to purchase houses and hotels 
+In this Milestone we implemented additional features based on our version of the Monopoly game designed in milestone 3. This iteration has the following features:
+- A save/load feature
+- Added different currencies 
+- Added different maps and ability to load a custom map
 
 ## GUI Explained: 
 
@@ -32,10 +33,12 @@ Each property is coloured based on their colour set, and once purchased a banner
 
 ## Design Decisions:
 
-The RollActionEvent handles the brunt of the processing. This is because the addition of special properties directly influences the outcome of the RollActionEvent, (if a player lands on a railroad for example, they should be able to buy it). These special properties were grouped into 2 categories; ones that are purchasable, and those with static events such as tax or jail. RollActionEvent also handles the purchasing of houses and hotels as they are to be triggered upon a dice roll resulting in  the player landing o their own property.
+Serialization was used to read and write when using the save and load functions. GameControl and ConfigureUI classes were created to allow for easier manipulation of the game.
+The ability to load a board as opposed to assigning a board based on currency was done to allow users to load a custom board, as well as allow for ease of testing. 
+The Surrender button was fixed as to address the issues mentioned in our previous milestones. 
 
-The AI was designed to automatically roll the dice and purchase the property it lands on should it have the funds. The AI turn is intentionally ended via the user clicking the 'End Round' button. This was done so that should the game consist of only AI players, the user would still be able to follow along. The use of delays were tested, however it was found that they would not be able to delay the moves enough without making the game feel as if it were lagging. If the AI is in jail, it will pay the exit fee if it has the funds; otherwise it will attempt to roll a double.
+## Known Issues:
 
+The end round button appears to be hidden sometimes when launching the game, resulting in the AI completing its turns rapidly. This is not a game breaking bug as the it does not affect the game itself but is rather a quality of life issue.
 
-
-
+The load function works correctly however saves from a previous game may interfere. If an error is encountered, clearing the save folder fixes it.
