@@ -58,11 +58,12 @@ public class RollActionEvent implements ActionListener {
                 passed_go_check_initialize();
                 jailEvaluation(player);
                 game.updateProperty();
-                game.update_player_info();
                 if(passed_go_check()){
                     game.add_message("Player: " + player.getName() + " passed GO!");
                     game.getGameModel().current_players_object.setMoney(game.getGameModel().current_players_object.getMoney() + 200);
+
                 }
+                game.update_player_info();
                 game.getView().btn_roll.setEnabled(false);
                 game.next_player();
                 game.getView().btn_roll.setEnabled(true);

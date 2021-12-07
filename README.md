@@ -41,4 +41,4 @@ The Surrender button was fixed as to address the issues mentioned in our previou
 
 The end round button appears to be hidden sometimes when launching the game, resulting in the AI completing its turns rapidly. This is not a game breaking bug as the it does not affect the game itself but is rather a quality of life issue.
 
-The load function works correctly however saves from a previous game may interfere. If an error is encountered, clearing the save folder fixes it.
+The load function works correctly however saves from a different computer may interfere. If an error is encountered, clearing the save folder fixes it.
