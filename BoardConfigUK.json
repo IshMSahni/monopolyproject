@@ -1,0 +1,341 @@
+[{
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Go",
+	"groupNum": 0,
+	"position": 0,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 60,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Old Kent Railroad",
+	"groupNum": 1,
+	"position": 1,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 60,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Whitechapel",
+	"groupNum": 1,
+	"position": 2,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Income Tax",
+	"groupNum": 0,
+	"position": 3,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "King's Cross Station",
+	"groupNum": 0,
+	"position": 4,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "The Angel Islington",
+	"groupNum": 2,
+	"position": 5,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Euston Road",
+	"groupNum": 2,
+	"position": 6,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 120,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Pentonville Road",
+	"groupNum": 2,
+	"position": 7,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Jail",
+	"groupNum": 0,
+	"position": 8,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 140,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Pall Mall",
+	"groupNum": 3,
+	"position": 9,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 150,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Electric Company",
+	"groupNum": 0,
+	"position": 10,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 140,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Whitehall",
+	"groupNum": 3,
+	"position": 11,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 160,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Northhumberland",
+	"groupNum": 3,
+	"position": 12,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "MaryleBone Station",
+	"groupNum": 0,
+	"position": 13,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 180,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Bow Street",
+	"groupNum": 4,
+	"position": 14,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 180,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Marlbourough Street",
+	"groupNum": 4,
+	"position": 15,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Vine Street",
+	"groupNum": 4,
+	"position": 16,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Free Parking",
+	"groupNum": 0,
+	"position": 17,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 220,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Strand",
+	"groupNum": 5,
+	"position": 18,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 220,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Fleet Street",
+	"groupNum": 5,
+	"position": 19,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 240,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Trafalgar Square",
+	"groupNum": 5,
+	"position": 20,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Fenchurch St. Station",
+	"groupNum": 0,
+	"position": 21,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 260,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Leiceseter Square",
+	"groupNum": 6,
+	"position": 22,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 260,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Coventry Street",
+	"groupNum": 6,
+	"position": 23,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 150,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Water Works",
+	"groupNum": 0,
+	"position": 24,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 280,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Piccadilly",
+	"groupNum": 6,
+	"position": 25,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Go To Jail",
+	"groupNum": 0,
+	"position": 26,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 300,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Regent Street",
+	"groupNum": 7,
+	"position": 27,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 300,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Oxford Street",
+	"groupNum": 7,
+	"position": 28,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 320,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Bond Street",
+	"groupNum": 7,
+	"position": 29,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Liverpool Street Station",
+	"groupNum": 0,
+	"position": 30,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 350,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Park Lane",
+	"groupNum": 8,
+	"position": 31,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Super Tax",
+	"groupNum": 0,
+	"position": 32,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 400,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Mayfair",
+	"groupNum": 8,
+	"position": 33,
+	"isSpecialBuyable": false
+}]
