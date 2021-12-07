@@ -75,7 +75,6 @@ public class ConfigureUI extends JDialog {
             panel.add(u_board_config);
             u_board_config.setColumns(10);
             u_board_config.setText("BoardConfig.json");
-
             u_btn_browse = new JButton("Browse..");
             u_btn_browse.setBounds(331, 6, 93, 23);
             panel.add(u_btn_browse);
@@ -85,6 +84,7 @@ public class ConfigureUI extends JDialog {
                             String config_file_path = DialogProvider.getInstance().show_file_dialog(self, ".");
                             if(config_file_path != null) {
                                 Config.configurable_board_config_path = config_file_path;
+                                u_board_config.setText(config_file_path);
                             }
                         }
                     }
@@ -113,6 +113,7 @@ public class ConfigureUI extends JDialog {
                             if(config_text != null){
                                 if(config_text.length() > 0) {
                                     Config.configurable_board_config_path = config_text;
+                                    u_board_config.setText(config_text);
                                 }
                             }
 

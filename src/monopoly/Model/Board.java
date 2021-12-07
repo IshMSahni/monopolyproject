@@ -1,5 +1,6 @@
 package monopoly.Model;
 
+import monopoly.Config;
 import org.json.JSONArray;
 
 import java.io.Serializable;
@@ -13,7 +14,8 @@ public class Board implements Serializable {
     //might want to use an array later instead of using integers directly in the map
 
     public Board() {
-        JSONArray config = BoardConfig.getInstance().get_config();
+        String ConfigFile = Config.getConfigFile();
+        JSONArray config = BoardConfig.getInstance(ConfigFile).get_config();
         propertyholder = new HashMap<>();
 
         for(int i = 0; i < config.length(); i++){

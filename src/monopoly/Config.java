@@ -9,6 +9,7 @@ public class Config {
     public static String configurable_dollar_sign = "$";
     public static String configurable_board_config_path = "BoardConfig.json";
 
-
-
+    public static String getConfigFile() {
+        return configurable_board_config_path;
+    }
 }
