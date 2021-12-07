@@ -540,7 +540,7 @@ public class GameBoardDesign extends JFrame {
         contentPane.add(btn_end_round);
 
         btn_surrender = new JButton("Surrender");
-        btn_surrender.setBounds(620, 105, 100, 23);
+        btn_surrender.setBounds(620, 72, 100, 23);
         contentPane.add(btn_surrender);
 
         lblNewLabel = new JLabel("Action:");

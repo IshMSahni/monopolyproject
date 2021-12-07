@@ -1,0 +1,341 @@
+[{
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Depart",
+	"groupNum": 0,
+	"position": 0,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 60,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Rue De Diest",
+	"groupNum": 1,
+	"position": 1,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 60,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Rue Ste Catherine",
+	"groupNum": 1,
+	"position": 2,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Impots Revenu",
+	"groupNum": 0,
+	"position": 3,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Gare Du Nord",
+	"groupNum": 0,
+	"position": 4,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Rue Royale",
+	"groupNum": 2,
+	"position": 5,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Rue Grande",
+	"groupNum": 2,
+	"position": 6,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 120,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 50,
+	"name": "Grand' Rue",
+	"groupNum": 2,
+	"position": 7,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "En Prison",
+	"groupNum": 0,
+	"position": 8,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 140,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Avenue De La Gare",
+	"groupNum": 3,
+	"position": 9,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 150,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Centrales Electrique",
+	"groupNum": 0,
+	"position": 10,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 140,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Rue De Marcinelle",
+	"groupNum": 3,
+	"position": 11,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 160,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Le Zoute",
+	"groupNum": 3,
+	"position": 12,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Gare Centrale",
+	"groupNum": 0,
+	"position": 13,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 180,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Bruges Rue Des Pierres",
+	"groupNum": 4,
+	"position": 14,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 180,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Ostende",
+	"groupNum": 4,
+	"position": 15,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 100,
+	"name": "Rue De Lille",
+	"groupNum": 4,
+	"position": 16,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Parc Gratuit",
+	"groupNum": 0,
+	"position": 17,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 220,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Place Du Monument",
+	"groupNum": 5,
+	"position": 18,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 220,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Grande Rue",
+	"groupNum": 5,
+	"position": 19,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 240,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Grand Cace",
+	"groupNum": 5,
+	"position": 20,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Tramways Vicinaux",
+	"groupNum": 0,
+	"position": 21,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 260,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Place St. Lambert",
+	"groupNum": 6,
+	"position": 22,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 260,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Rue de Laeken",
+	"groupNum": 6,
+	"position": 23,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 150,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Cie Intercom",
+	"groupNum": 0,
+	"position": 24,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 280,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 150,
+	"name": "Rue Des Champs",
+	"groupNum": 6,
+	"position": 25,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 100,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Allez en Prison",
+	"groupNum": 0,
+	"position": 26,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 300,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Rue De L'Ange",
+	"groupNum": 7,
+	"position": 27,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 300,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Place Verte",
+	"groupNum": 7,
+	"position": 28,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 320,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Rue Du Demer",
+	"groupNum": 7,
+	"position": 29,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 200,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 0,
+	"name": "Gare Du Midi",
+	"groupNum": 0,
+	"position": 30,
+	"isSpecialBuyable": true
+}, {
+	"owner": "",
+	"cost": 350,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Place De Mier",
+	"groupNum": 8,
+	"position": 31,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 0,
+	"isSpecial": true,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Impot Supplementaire",
+	"groupNum": 0,
+	"position": 32,
+	"isSpecialBuyable": false
+}, {
+	"owner": "",
+	"cost": 400,
+	"isSpecial": false,
+	"isOwned": false,
+	"housePrice": 200,
+	"name": "Rue Neuve",
+	"groupNum": 8,
+	"position": 33,
+	"isSpecialBuyable": false
+}]
